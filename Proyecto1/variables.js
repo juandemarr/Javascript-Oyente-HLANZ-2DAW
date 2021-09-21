@@ -1,10 +1,20 @@
 console.log("THIS IS THE WAY");
 
 /*
-    Tipos de datos:
-        undefined, null, boolean, string, number, object
-    Simbologia camelCase
+    Tipos de datos primitivos (no tienen metodos ni propiedades)
+        undefined, null, boolean, string, number, NaN, Symbol
+        string lo convierte a objeto string automaticamente al usar propiedades como length sobre el
+    propiedades sin parentesis
+    metodos con parentesis
+    
+        Simbologia camelCase
 */
+
+//tipo de dato de una variable typeof variable;
+
+//Primero declarar con const(se decalra en MAYUSCULA), luego let y por ultimo var
+//No usar la misma variable para cambiar su valor, crear nuevas
+
 var variableGlobal = 10; //segun donde se declare. Sin valor es undefined
 variableGlobal = "10"; //con comillas dobles o simples se declara string
 var variableB;
@@ -32,7 +42,8 @@ console.log(nombre2[nombre2.length - 1]);
 
 //los strings son inmutables, no se pueden cambiar sus valores por otros
 
-
+// "3" == 3 true
+// "3" === 3 false tiene en cuenta el tipo de variable
 
 
 
