@@ -29,8 +29,21 @@ let segundaMitad = newTexto.splice((primeraMitad.length-1).indexOf);//empieza en
 console.log("segunda mitad: " + segundaMitad);
 
 //INVERTIR
-var aux;
-for(let i = 0 ; i < primeraMitad.length-1 ; i++){
+var nuevaCadena=[];
+for(let i = primeraMitad.length-1 ; i>=0 ; i--){
+    /* for(let i = 0 ; i < primeraMitad.length-1 ; i++){
+        aux=primeraMitad[i];
+        primeraMitad[i]=primeraMitad[i+1];
+        primeraMitad[i+1]=aux;
+    } */
+    nuevaCadena.push(primeraMitad[i]);
     
+}
+console.log("Invertir: " + nuevaCadena);
+
+//MOVER TRES POSICIONES
+var aux;
+for(let i = 0 ; i < segundaMitad.length-1 ; i++){
+    aux = segundaMitad[i+3];
 }
 
