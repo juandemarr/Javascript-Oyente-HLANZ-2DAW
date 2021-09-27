@@ -12,7 +12,9 @@ console.log("THIS IS THE WAY");
 
 //tipo de dato de una variable typeof variable;
 
-//Primero declarar con const(se decalra en MAYUSCULA), luego let y por ultimo var
+//Primero declarar con const(se declara en MAYUSCULA en primitivas, no compuestas), luego let y por ultimo var. 
+//const no deja modificar variables primitivas, pero si compuestas como objetos. Puede modificar su contenido (como un bote de gel) pero no cambiarse todo por otro valor.
+
 //No usar la misma variable para cambiar su valor, crear nuevas
 
 var variableGlobal = 10; //segun donde se declare. Sin valor es undefined

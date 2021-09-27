@@ -18,8 +18,18 @@ miArreglo.shift(); //Elimina el primer elemento
 miArreglo.unshift("Hola"); //Añade al principio
 console.log(miArreglo);
 
+let texto="Hola";
+texto.split('');//metodo de string que lo convierte a array
+
+delete miArreglo["Nombre"]; //borra el elemento dejando el huevo a vacio
+miArreglo.slice(1,2)//Borra todo lo que no este entre la posicion 1 y 2, sin incluir la 2
+miArreglo.slice(1,-1)//de 4 elementos deja los dos del medio
+miArreglo.slice(-2)//borra todo menos los 2 ultimos
+
 miArreglo.slice(posicionInicial); //hasta el final
 miArreglo.slice(posicionInicial,numeroElementos) //obtener nuevo array partido
+
+miArreglo.concat([4,3]);//concatena al miArreglo el nuevo array pasado por argumentos
 
 //EJ 1
 /*crear programa en javascript que permita mostrar por pantalla el nombre de los cientes

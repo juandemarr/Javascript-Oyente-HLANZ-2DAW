@@ -34,6 +34,9 @@ console.log(nombre.includes("num",7));
 
 console.log(nombre.repeat(4)); //se concatena 4 veces
 
+let texto="Hola";
+texto.split('');//metodo de string que lo convierte a array
+
 //TEMPLATES, comillas hacia la izq, para agregar variables con $
 let nombre2 = "Antonio";
 let edad = 34;
