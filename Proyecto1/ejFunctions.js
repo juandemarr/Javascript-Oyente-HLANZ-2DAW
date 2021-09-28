@@ -40,14 +40,42 @@ function f3(){
     
     return miArray;
 }
-console.log(f3(2,"hola","adios",100));
+console.log(f3(2,"hola","adio",100));
 
 
 
-//CONVERSION DE TIPOS
-/*
-parseInt(9.99) //te quedas con la parte entera
-parseFloat("9.99")//Devuelve el numero 9.99
-Number("")//Devuelve el numero 0
-String(9)//Devuelve la cadena de texto 9
-*/
+// EJ1
+// v1 Crear una funcion a la que le pasemos un texto, seguidamente creara un array que contenga los numeros unicode
+// de cada una de las letras de ese texto
+
+//v2 crear un objeto del tipo:
+//{letra: codigo unicode} (no se admiten repeticiones)
+//Ejemplo: {'H' : 128, 'o' : 99,...}
+
+//v1
+let unicode = (a) => {
+    let arregloUnicode = [];
+    for(let p of a)
+        arregloUnicode.push(p.charCodeAt())
+    return arregloUnicode;
+}
+
+console.log("Unicode");
+console.log(unicode("Hello there"));
+
+//EJ2 Dado un array de numeros, calcular una funcion que calcule las raices cubicas de cada numero, aplicando un redondeo
+//a la tercera cifra decimal. Obligatorio el uso de map. Por ultimo ordenara de menor a mayor los resultados 
+//de las raices cubicas
+
+let raicesCubicas = (a) => {
+    let arrayCubico = [];
+    a.map ((a) => {
+        arrayCubico.push(Math.pow(a,1/3).toFixed(3));
+    });
+
+    return arrayCubico;
+};
+
+let arrayNumeros = [2,3,4];
+console.log("Funcion raices cubicas");
+console.log(raicesCubicas(arrayNumeros));

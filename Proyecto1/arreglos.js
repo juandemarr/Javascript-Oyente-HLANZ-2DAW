@@ -31,6 +31,12 @@ miArreglo.slice(posicionInicial,numeroElementos) //obtener nuevo array partido
 
 miArreglo.concat([4,3]);//concatena al miArreglo el nuevo array pasado por argumentos
 
+DE STRING A ARRAY
+miString.split('');
+DE ARRAY A STRING
+miArray.join('')
+
+
 //EJ 1
 /*crear programa en javascript que permita mostrar por pantalla el nombre de los cientes
 y su DNI.

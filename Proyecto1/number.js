@@ -33,3 +33,4 @@ console.log(Math.sqrt(2)); //raiz cuadrada
 console.log(Math.random()); //numero aleatorio entre 0 y 1. No es del todo aleatorio, al ser hecho por humano
 console.log(Math.random() * (max - min) + min) //aleatorio entre dos valores
 
+arrayNumeros.toFixed(3)//redondea a tres decimales

@@ -34,6 +34,8 @@ console.log(nombre.includes("num",7));
 
 console.log(nombre.repeat(4)); //se concatena 4 veces
 
+//para decir el numero unicode de un caracter --> caracter.charCodeAt();
+
 let texto="Hola";
 texto.split('');//metodo de string que lo convierte a array
 
