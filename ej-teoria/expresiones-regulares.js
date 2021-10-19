@@ -41,14 +41,21 @@ tfno (958) 55 55 55
 
 Ejercicio: exp regular para emails: /[a-zA-Z0-9-\.\_]+@[a-zA-Z-\.]+\.[a-zA-Z]+/gim
 Ejercicio: cualquier direccion IP: /(\d{1,3}\.){3}\d{1,3}/gim
-Ejercicio: contrasñea solo de 5 digitos: 
+Ejercicio: contraseña solo de 5 digitos: 
 
-
+La validacion de los formularios se tiene que hacer en el servidor. El html y js se puede saltar la verificacion, aun
+asi lo hacemos como prerrequisito(detectando primeros errores como vacios) pero no el unico
 */
 
-let miExpresion = new RegExp();
-miExpresion = /hola/gi;
-
+let expresion = new RegExp();
+expresion = /hola/gi;
 let texto = "hola estamos probando con hello there";
-miExpresion.test(texto); //devuelve true solo la primera vez, ya que tiene un puntero que se queda en esa posicion de la frase.
+
+//Sobre expresiones regulares tenemos .test(texto) devuelve true o false
+//y .exec(texto) devuelve un objeto array
+console.log(miExpresion.test(texto)); //devuelve true solo la primera vez, ya que tiene un puntero que se queda en esa posicion de la frase.
 //Hay que resetear su indexOf
+
+console.log(expresion.exec(texto));
+//Sobre texto tenemos .match(exp regular) devuelve un objeto array
+texto.match(expresion)
