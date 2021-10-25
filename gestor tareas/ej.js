@@ -1,3 +1,4 @@
+//hacer una lista abajo en la que se incluya lo que se escriba
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll("#formulario input");//array para traer todos los input que hay dentro del formulario, 
 //con espacio entre medias 
