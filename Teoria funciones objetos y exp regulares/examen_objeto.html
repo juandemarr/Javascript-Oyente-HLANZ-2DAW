@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="examen_objeto.js"></script>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        body{
+            padding:1rem;
+        }
+        .datos{
+            display:flex;
+            border:1px solid black;
+            margin-top:1rem;
+        }
+        .datos div{
+            width:50%;
+            padding:1rem;
+        }
+        .datos div:nth-child(2){
+            border-left:1px solid black;
+        }
+        input{
+            margin-bottom:.5rem;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="calle">Calle: </label>
+        <input type="text" id="calle"/><br>
+
+        <label for="numero">Numero: </label>
+        <input type="text" id="numero"/><br>
+
+        <label for="poblacion">Poblacion: </label>
+        <input type="text" id="poblacion"/><br>
+
+        <label for="cp">CP: </label>
+        <input type="text" id="cp"/><br>
+
+        <label for="piso">Propietario: </label>
+        <input type="text" id="propietario"/><br>
+
+        <label for="nPlanta">Numero de planta: </label>
+        <input type="text" id="nPlanta"/><br>
+
+        <label for="letra">Letra de piso: </label>
+        <input type="text" id="letra"/><br>
+
+        <input type="submit" id="enviar"/>
+    </form>
+    
+    <form>
+        <label for="buscador">Buscador de propietarios: </label>
+        <input type="text" id="buscador"/>
+        <input type="submit" value="Buscar" id="buscadorPropietario"/>
+    </form>
+
+    <section class="datos">
+        <div>
+            <p id="mostrarCalle">Calle: </p>
+            <p id="mostrarNumero">Numero: </p>
+            <p id="mostrarPoblacion">Poblacion: </p>
+            <p id="mostrarCP">CP: </p>
+        </div>
+
+        <div>
+            <p id="numPiso">Numero de piso: </p>
+            <p id="letraPiso">Letra de piso: </p>
+            <p id="propPiso">Propietario de piso: </p>
+            <p id="resultadoPropietario">Resultado de busqueda: </p>
+        </div>
+    
+    
+    </section>
+    
+</body>
+</html>
