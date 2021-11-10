@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de validación con Expresiones Regulares</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <form
+      action=""
+      name="formulario"
+      class="formulario"
+      method="get"
+      id="formulario"
+    >
+      <!--
+            Formulario.
+            No usamos required (html5) en las etiquetas para forzar nosotros con javascript la gestión
+        -->
+      <label for="formulario" class="formulario__label" id="lblNombre">Nombre:</label
+      >
+      <input
+        type="text"
+        name="nombre"
+        class="formulario__input"
+        id="nombre"
+        maxlength="40"
+        placeholder="Nombre del Usuario"
+      />
+      <br />
+      <label for="formulario" class="lblEdad" id="lblEdad">Edad:</label>
+      <input
+        type="text"
+        class="formulario__input"
+        name="edad"
+        id="edad"
+        maxlength="2"
+        placeholder="Número"
+      />
+      <br />
+      <input type="radio" name="sexo" id="masculino" class="formulario__sexo" />
+      Masculino
+      <input type="radio" name="sexo" id="femenino" class="formulario__sexo" />
+      Femenino
+      <br />
+      <input
+        type="checkbox"
+        name="terminosAcuerdo"
+        id="terminosAcuerdo"
+        class="terminosAcuerdo"
+      />Acepto condiciones
+      <br />
+      <input
+        type="submit"
+        value="Enviar"
+        class="formulario__btnEnviar"
+        id="btnEnviar"
+      />
+      <p class="warning" id="warning">Aquí mostraré si todo ok o no</p>
+    </form>
+  </body>
+</html>

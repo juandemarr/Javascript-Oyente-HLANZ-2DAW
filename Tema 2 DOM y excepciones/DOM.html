@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="DOM.js" defer></script><!--primero carga el html y dsp el script
+    Si no se usa, habria que poner la etiqueta script encima del cierre de body
+    Equivalente a windows.onload=main, se usa esto menos y se pondria encima de la etiqueta de cierre de body-->
+    <style>
+        .miClase{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <!--Ejemplo
+    <p class="parrafo" id="mi-id">Hello</p>
+    <p class="parrafo" id="mi-id-dos">There</p>
+    -->
+    <div id="main">
+        <p id="parrafo1">Este es el primer parrafo</p>
+        <p id="parrafo2">Este es el segundo parrafo</p>
+        <p id="parrafo3">Este es el tercer parrafo</p>
+    </div>
+    <br/>
+    <button id="cambiarTextos">Cambiar texto de párrafos</button>
+    <button id="cambiarClases">Cambiar clases de párrafos</button>
+    <button id="quitarClases">Quitar clases de todos los párrafos</button>
+</body>
+</html>
