@@ -201,3 +201,6 @@ console.log(resultado);
 //FILTER. Devuelve otro array
 const result = bb.filter(elemento => elemento>2);
 console.log(result);
+
+//EXTRA
+//Si el indice de una propiedad del objeto es un numero, no se puede llamar con punto, solo con []

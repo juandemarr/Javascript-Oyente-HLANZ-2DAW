@@ -40,7 +40,7 @@ Object.entries(perro).forEach(([key,value])=>{
 ////////////////////////////////
 console.log("OBJECT ENTRIES CON FOR OF");
 
-for(const [key,value] of Object.entries(perro)){//key,value va entre llaves porque Object.entries devuelve un array. 
+for(const [key,value] of Object.entries(perro)){//key,value va entre corchetes porque Object.entries devuelve un array. 
     //Si devolviera un objeto, se pondria entre {}. DESTRUCTURING
     //Para coger el 1 y el 3 seria [key,,value]
     console.log(value);
