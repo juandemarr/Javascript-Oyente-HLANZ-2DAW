@@ -7,3 +7,25 @@
  *                si me posiciono encima de una tarea => el texto de la tarea saldrá tachado y el puntero en manita
  *                Al hacer click la dejara tachada permanentemente
  */
+ function crearTarea(e){
+    //e.preventDefault();
+    let div = document.createElement("div");
+    let p = document.createElement("p");
+    let textoP = document.createTextNode(texto);
+    p.appendChild(textoP);
+    div.appendChild(p);
+    resultado.appendChild(div);
+}
+
+/////////////////////////
+const texto = document.getElementById("textarea").value;
+const resultado = document.getElementById("resultados");
+document.getElementById("submitTarea").addEventListener("click",crearTarea);
+
+
+
+
+
+
+
+
