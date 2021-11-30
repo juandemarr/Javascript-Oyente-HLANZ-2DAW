@@ -5,8 +5,13 @@
 //para cambiar una clase de CSS --> classList.replace(original,nuevo) lista de clases de
 //classList.add() añade una clase
 //classList.remove() elimina una clase
+//classList.contains("clase1") devuelve true o false
+//classList.replace("old","new")
+//classList.toggle(xxx) <-- cambia un elemento de una clase;
+//classList.toggle("active"); //si no tiene la clase la añade, si la tiene la quita
 
-//elemento.classList.toggle(xxx) <-- cambia un elemento de una clase;
+//e.target da  el elemento html que generado el evento y no cambia en el evento de propagacion
+//e.currentTarget es por donde se va moviendo el evento en ese momento
 
 const boton = document.getElementById("boton");
 const caja = document.getElementById("caja");

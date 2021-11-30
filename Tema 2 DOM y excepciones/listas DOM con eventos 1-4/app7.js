@@ -6,11 +6,11 @@ function inicio(){
     /*probar 
     for(h2 of Array.from(document.getElementsByTagName("h2"))){
 
-    } */
+    }*/
     for(let i = 0 ; i < document.getElementsByTagName("h2").length ; i++){
         document.getElementsByTagName("h2")[i].addEventListener("click",recorrer);
     }
-    //Al clicar en h2, aparece en div texto: Ha pulaso en h2 con texto: ... e hijos: ...
+    //Al clicar en h2, aparece en div texto: Ha pulsado en h2 con texto: ... e hijos: ...
     
 }
 

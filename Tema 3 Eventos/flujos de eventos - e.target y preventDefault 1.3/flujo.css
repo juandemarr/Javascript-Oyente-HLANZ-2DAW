@@ -1,0 +1,17 @@
+.flujos-eventos div{
+    padding:4rem;
+    font-size:2rem;
+    text-align:center;
+}
+.uno{
+    background-color:yellow;
+}
+.dos{
+    background-color:yellowgreen;
+}
+.tres{
+    background-color:orange;
+}
+#cuartoDiv{
+    background-color:red;
+}

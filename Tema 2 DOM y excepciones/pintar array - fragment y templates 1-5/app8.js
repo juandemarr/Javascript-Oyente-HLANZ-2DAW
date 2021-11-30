@@ -42,3 +42,9 @@ miArray.forEach(item => {
 ul.appendChild(fragmento); //este fragmento sustituye al ul
 span.appendChild(ul);
 //mejora TEMPLATES.
+
+/*
+en html se pone la etiqueta <template> y dentro es donde ejecutaremos todo el codigo js
+    si hay intros el dom lo trata como un nodo de texto tambien, con contenido ""
+no añade ni cambia nada en html. Ver ejemplo pdf apuntes
+*/

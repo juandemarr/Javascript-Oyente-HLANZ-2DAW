@@ -19,13 +19,15 @@ los nodos pueden tener atributos y texto. Cada nodo es una entidad propia que se
 
 Acceso a los elementos del DOM:
 -document.querySelector("valor") devuelve un resultado. Puede aplicarse a una clase o id de CSS
--document.querySelectorAll("valor") devuelve un array
+-document.querySelectorAll("valor") devuelve un array => NodeList (incluye intros)
 -getElementById("nombreId") devuelve 1 elemento
--getElementsByClassName() devuelve un array
+-getElementsByClassName() devuelve => HTML Collection. No array, recorrer con for of
 -getElementsByTagName devuelve 1 array
 
 -etiqueta.setAttribute("nombreAtributo","valor");
 -etiqueta.className = "miClase";
+
+Usar selectores que devuelvan element no nodes
 
 Ejemplos:
 console.log(document.head); //muestra la estrucutra en modo texto del head
