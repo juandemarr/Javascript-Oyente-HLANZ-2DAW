@@ -59,7 +59,17 @@ if(typeof(Storage)!="undefined"){
     
     localStorage.setItem("colorFondo",colorPag);
     sessionStorage.setItem("colorTabla",colorTabla);
-    //probar a guardar json y obtenerlo
+
+    let obj = {colorFondo : colorPag , colorTabla : colorTabla};
+    let objJSON = JSON.stringify(obj);
+    console.log("En JSON: "+objJSON);
+    localStorage.setItem("array",objJSON);
+    
+    let objJSONRecuperado = localStorage.getItem("array");
+    console.log("Objeto JSON recuperado: "+objJSONRecuperado);
+    let objNormal = JSON.parse(objJSONRecuperado);
+    for(let a in objNormal)
+        console.log(objNormal[a]);
 }else{
     alert("El navegador no soporta webstorage")
 }    
