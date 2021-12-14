@@ -41,4 +41,5 @@ localStorage.removeItem('miGato'); y clear
 SETINTERVAL Y SETTIEMOUT
 js tiene una cola de ejecucion, solo puede hacer 1 cosa a la vez.
 
+reqres.in api de json
 */

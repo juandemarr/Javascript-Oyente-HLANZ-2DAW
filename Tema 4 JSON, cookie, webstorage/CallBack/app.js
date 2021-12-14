@@ -1,7 +1,7 @@
 /**
  * @description uso de las callbacks
  * Una funcion de callback es una funcion que se pasa a otra funcion como argumento (ultimo argumento),
- * que posteriormente es invocado dentro de una funcion exterena
+ * que posteriormente es invocado dentro de una funcion externa
  * 
  * Funcion que se define dentro, y se llama en el parametro de una funcion externa como funcion arrow
  * 
