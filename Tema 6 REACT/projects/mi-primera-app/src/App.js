@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import grupoComponentes from './Componentes/Componente';
+//import Componente from './Componentes/Componente';
+import Estado from './Componentes/Estado';
+
+const nombre = "juande";
+const id = 3;
+const pintar = true;
+const meses = ["enero","febrero","marzo","abril"];
+const datos = {nombre : "juande", correo : "email@email"};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <grupoComponentes.Componente 
+          nombre = {nombre} 
+          dato = {pintar} 
+          id = {id}
+          meses = {meses}
+          datos = {datos} />
+        <grupoComponentes.Componente2 />
+        <Estado />
+      </div>
+      <div>
+        a
+      </div>
+    </>
   );
 }
 
