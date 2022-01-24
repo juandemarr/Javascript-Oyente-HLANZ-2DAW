@@ -1,0 +1,21 @@
+picture{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    
+}
+img{
+    box-shadow: 0 0 20px #999;
+    border-radius:60%;
+    width:100px;
+}
+img.disabled{
+    opacity:0.2;
+}
+
+picture.is-small{
+    width:60px;
+}
+picture.is-large{
+    width:160px;
+}

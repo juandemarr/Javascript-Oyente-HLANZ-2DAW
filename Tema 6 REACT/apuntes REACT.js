@@ -114,7 +114,7 @@ Estas var se pasan como props en los argumentos del componente funcional, y se m
 este props es un objeto, por eso se llama con props.nombre (como se vio en babel try out)
 
 DATOS QUE SE PUEDEN PASAR A LAS PROPS al llamar al compnente
-string, {var creada arriba}, numeros, 
+string, {var creada arriba}, numeros {2.85}
 
 Para listas hay que indicarle a cada elemento un key como atributo de la etiqueta
 
@@ -126,13 +126,40 @@ Para usarlo, importarlo en otro archivo con:
 import Componente from './Componentes/Componente';
 si no se usa el default, poner {Componente}
 
-VAIROS
+VARIOS
 Para exportar mas de un componente en un archivo:
 export default {Componente,Componente2};
 
 Para importarlo, crear un grupo y luego usar <grupoComponente />
 import grupoComponentes from './Componentes/Componente';
 
+COMENTAR
+{/*  */}
 
+/*Los componentes tienen 3 esatdos, cuando se crean, modifican y eliminan
 
+----EVENTOS
+Eventos sinteticos, se traducen a eventos del DOM que no usa
+En sintaxis camelCase
+
+----CONTEXTO THIS
+//estas llaves crean un contexto, por lo que el this.state no funciona ya que ese this se refiere 
+///al contexto de la funcion, no al de arriba del constructor
+
+-----BINDEO
+o binding sobre los metodos que el this pierde el contexto de clase
+
+en las arrow function no hace falta ya que coge el this desde arriba
+
+----//con arrow function para el esatdo
+    //cogemos el valor del estado que repinta la vista al cambiar, en este caso cantidad, y al lado setMismonombre, esta 
+    //es una funcion
+    const [cantidad, setCantidad] = useState(0); //en useState se pone el valor inicial de cantidad, si fuese un objeto 
+    //seria {}, como es un numero ponemos 0
+
+    import React, {useState} from "react"; //este useState se llama HOOK
+
+------ATRIBUTOS DE CLASES
+para añadir mas de una clase, si la cogemos convariable, tenemos que definir esa var arriba e irle concatenando las clases
+className={classNameImg}
 */

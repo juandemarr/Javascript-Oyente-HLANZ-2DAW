@@ -43,7 +43,7 @@ class Componente extends Component{
     render(){
         return(
         <>
-            <h1>Mi primer componente {this.nombre}</h1>
+            <h1>Mi primer componente {this.nombre} {this.datos.correo}</h1>
             <ol>
                 {this.meses.map((mes,index) => (
                     <li key={index}>{mes}</li>
