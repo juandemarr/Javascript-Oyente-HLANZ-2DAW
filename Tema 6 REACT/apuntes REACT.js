@@ -162,4 +162,40 @@ en las arrow function no hace falta ya que coge el this desde arriba
 ------ATRIBUTOS DE CLASES
 para añadir mas de una clase, si la cogemos convariable, tenemos que definir esa var arriba e irle concatenando las clases
 className={classNameImg}
+
+
+
+
+SOFTWARE para consumir y verificar API (get/post/etc)
+SOFTWARE control de versiones:
+http://gitextensions.github.io/
+//Para comprobar la consumicion de apis, app:postman
+
+registrarse en https://openweathermap.org/api --> api del tiempo
+pinchar en api, current weather data (la primera), subscribe, get APIKEY
+https://www.themoviedb.org/?language=es-ES -->registrarse ne esta para entrar a la de abajo
+https://developers.themoviedb.org/3
+
+
+extension vscode es7 + react
+alt + shift + flecha para abajoo arriba
+ctrl + ç comenta una linea
+alt + flechas arriba mueve un bloque de codigo
+
+instalar json formatter extension para chrome
+
+RESUMEN
+npx create-react-app nombre
+//////Para empezar nuevo proyecto: quitar los archivos test, de index quitar reportVitals,
+yarn start para abrir
+
+rafce escribe solo un componente funcional
+en app escribimos <NombreComponente y al darle a click agrega auto el import y el nombre del componente
+
+para usar el useState, hay que importar, dando al cubo morado lo autocompleta al escribir useState
+
+en la carpeta helpers dentro de src, haremos los get de la api
+
 */
+
+

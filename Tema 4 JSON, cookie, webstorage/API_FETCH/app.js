@@ -136,3 +136,17 @@ fetch("https://jsonplaceholder.typicode.com/users")
         usersTable.appendChild(fragment);
     })
 
+/*
+//asincrono SIEMPRE
+
+const getWeather = async () => {
+    try{
+        let url = ``;
+
+        let res = await fetch(url);
+        let data = await res.json();
+
+        //data.main ya usar sus claves y maquetar
+    }
+}
+*/
