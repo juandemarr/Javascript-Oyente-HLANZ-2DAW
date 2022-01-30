@@ -163,7 +163,33 @@ en las arrow function no hace falta ya que coge el this desde arriba
 para añadir mas de una clase, si la cogemos convariable, tenemos que definir esa var arriba e irle concatenando las clases
 className={classNameImg}
 
+--- OTRO HOOK, useEffect
+useEffect, para que al arrancar la app se ejecute, al menos una vez
+useEffect(() => {
+    console.log("Se ejecuta al inicio solo una vez");
+},[])
 
+useEffect(() => {
+    console.log("Se ejecuta cuando modificas el state de contador1");
+},[contador1]);
+
+
+--- propiedad children
+
+<Datos edad={edad}>
+    <Hijo/>
+</Datos> /* aqui se consume */
+/*
+import React from 'react';
+
+const Datos = ({edad},children) => {
+  return <div>
+      {edad} o si lo llamo arriba props sin {}, aqui seria props.edad 
+      {children} parametro especial children, coge lo que se pone dentro del componente
+  </div>;
+};
+
+export default APIWeather;
 
 
 SOFTWARE para consumir y verificar API (get/post/etc)
@@ -174,7 +200,11 @@ http://gitextensions.github.io/
 registrarse en https://openweathermap.org/api --> api del tiempo
 pinchar en api, current weather data (la primera), subscribe, get APIKEY
 https://www.themoviedb.org/?language=es-ES -->registrarse ne esta para entrar a la de abajo
+Aqui en configuracion, api, generate new api, developer
+            sitio web
+            
 https://developers.themoviedb.org/3
+
 
 
 extension vscode es7 + react
@@ -196,6 +226,16 @@ para usar el useState, hay que importar, dando al cubo morado lo autocompleta al
 
 en la carpeta helpers dentro de src, haremos los get de la api
 
+async await devuelve siempre una promesa
+
+/////////////////////
+en el navegador, iinspector, network, 
+
+////////
+Al componete de la pelicula, odnde colocalmos la imagen, mejor ponerle el width aqui para que reserve el espacio
+
+CSS dinamicos, usar modulos
+nombre.module.css
+importar en el componente:import estilos from './css/Pelicula.module.css';
+y usarlos dentro como: <li className={estilos.movieCard}>
 */
-
-

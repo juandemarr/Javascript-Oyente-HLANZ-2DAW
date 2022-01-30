@@ -1,0 +1,20 @@
+.movieCard{
+    list-style:none;
+    font-size:1rem;
+    text-align:center;
+}
+.movieImg{
+    border-radius: 20px;
+    background-color:black;
+}
+.movieImg:hover{
+    opacity:0.3;
+    transition:.2s ease-out;
+}
+
+@media (max-width:576px){
+    .movieImg{
+        width:90%;
+        height:auto;
+    }
+}

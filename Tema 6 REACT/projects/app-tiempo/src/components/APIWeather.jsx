@@ -1,42 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import getInfo from '../helpers/getInfo';
 import APIWeatherInfo from './APIWeatherInfo';
 
 const APIWeather = () => {
     const [searchTerm,setSearchTerm] = useState("Granada");
     const [tempInfo,setTempInfo] = useState({});
 
-    const getWeatherInfo = async () => {
+    const getWeatherInfo = () => {
         try {
-            //ahora realizo una consulta a la API
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=metric&appid=2b4e73c14a33e69a31d72a6ea2c0aef2&lang=ES`;
-            //se puede concatenar o usar template, ya que esto es js
+            getInfo(searchTerm)
+            .then((data) => {
+                //console.log(data);
+                const {temp, humidity, pressure} = data?.main //destructuring, se pueden declarar individualmente
+                //interrogacion se pone por si no esta esa clave, que no reviente
+                const {description} = data.weather[0];
+                const {name} = data;
+                const {speed} = data.wind;
+                const {country,sunset} = data.sys;
+                
+                //se crea este objeto par guardar toda la info de golpe en tempInfo, creada arriba
+                const miInfo = {
+                    temp,
+                    humidity,
+                    pressure,
+                    description,
+                    name,
+                    speed,
+                    country,
+                    sunset
+                }
+                setTempInfo(miInfo);
+            })
 
-            let respuesta = await fetch(url);
-            let data = await respuesta.json();
-
-            //console.log(data);
-
-            const {temp, humidity, pressure} = data?.main //destructuring, se pueden declarar individualmente
-            //interrogacion se pone por si no esta esa clave, que no reviente
-            const {description} = data.weather[0];
-            const {name} = data;
-            const {speed} = data.wind;
-            const {country,sunset} = data.sys;
-            
-            //se crea este objeto par guardar toda la info de golpe en tempInfo, creada arriba
-            const miInfo = {
-                temp,
-                humidity,
-                pressure,
-                description,
-                name,
-                speed,
-                country,
-                sunset
-            }
-            console.log(miInfo);
-
-            setTempInfo(miInfo);
+            //console.log(miInfo);
 
         } catch (error) {
             console.log(error);
