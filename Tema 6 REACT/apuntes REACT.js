@@ -48,7 +48,7 @@ ReactDOM.render(lo que voy a pintar , donde lo voy a pintar)
 
 El nombre de los archivos de los componentes siempre empiezan en mayusculas
 
-Si preformatea el codigo poniendolo en una linea y quitando los aprentesis del return de app.js porque hay solo una linea
+Si preformatea el codigo poniendolo en una linea y quitando los parentesis del return de app.js porque hay solo una linea
 , MAL, parentesis necesarios
 Lo de adrento es jsx
 Las etiquetas sin etiquetas de cierre, ponerles al final espacio y barra <br />
@@ -100,6 +100,7 @@ const Componente = (props) => (
 </>
 );
 
+.map para recorrer array
 
 El render lo unico obligatorio en cada ocmponente
 
@@ -238,4 +239,96 @@ CSS dinamicos, usar modulos
 nombre.module.css
 importar en el componente:import estilos from './css/Pelicula.module.css';
 y usarlos dentro como: <li className={estilos.movieCard}>
+
+//Para eliminar un paquete, yarn remove
+
+
+//////////////////RUTAS
+react-router-dom v.6
+--- npm install react-router-dom
+ó
+--- yarn add react-router-dom
+
+
+el esquema de rutas se pone en la pag de entrada: index.js
+
+<BrowserRouter>
+    <Routes>
+        <Route path="/" element={<Layout />} />    //entre llaves se pone a donde quiero ir, nombre del componente
+        <Route path="/pelicuals" element={<PeliculasGrid/>} />
+        <Route path="*" element={<Navigate replace to ="/" /> } />    // * => todo lo que no sea lo anterior lo envia a / con navigate replace to
+    </Routes>
+</BrowserRouter>
+
+en la pag en lugar de poner el enlace a, seria <Link to="/">Home</Link>
+
+
+--OUTLET
+Para que no se repinte todo en otra pag, tienen que verse los enlaces, por lo que los englobaremos en una ruta 
+que apunta a la pag principal. Para indicar donde se pintaran, se pone <Outlet /> y ahí se pintaran esas rutas
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout/>}>     // se engloba para decir que todo eso se quede en una parte dentro de la pag principal, y hay que indica adonde quiero apuntar
+        <Route index element={<Hoome />} />     // La principal se sustituye por index 
+        <Route path="peliculas" element={<PeliculasGrid/>} />
+        <Route path="about" element={<About/>} />
+        <Route path="*" element={<Navigate replace to ="/" /> } />
+    </Route>
+      
+  </Routes>
+</BrowserRouter>
+,
+document.getElementById('root')
+);
+
+
+Para recorrer un array con .map() y dentro una funcion flecha, la cual siemre tiene que tener un return()
+o cambiar las llaves de la arrow function por () , que tienen implicito el return
+{datos.results.map((pelicula) => {
+    return (
+        <li key={pelicula.id}>{pelicula.title}</li>
+    )
+})}
+
+
+//Recoger variables de la url
+HOOK useParams()
+
+en el index.js
+<Route path="peliculas/:peliculaID" element={<Pelicula/>} /> // este nombre despues de : da igual, 
+luego lo usaremos en params.peliculaID
+
+en el componente PeliculasGrid
+<Link to={pelicula.id.toString()}><li></li></Link> hay que convertir la ruta a texto, por si el id es un numero
+
+este numero que envio a la ruta, se recoge con esto en el componente de esa ruta con:
+const parms = useParams();
+params.peliculaID al ser la url, es string
+
+
+//PARA VOLVER A OTRA RUTA; NECESARIO OTRO HOOK useNavigate()
+const navigate = useNavigate();
+
+    function handleVolver(){
+        navigate("/peliculas");
+    }
+
+
+//BUSCADOR
+https://www.google.es/search?q=gato //este search?q es una query, lo simularemos con useSearchParams()
+
+//Para realizar busquedas en formularios usaremos las queryParams o llamados parámetros de búsqueda
+//para ello necesitamos el Hook useSearchParams
+
+  const [searchP , setSearchP] = useSearchParams();
+
+  es una variable de estado, al ser input de buscar es especial y se usa eso
+
+
+  const filtrar = searchP.get("search") ?? "" //si es distinto de null o undefined, quedate con lo primero
+
+
 */
+

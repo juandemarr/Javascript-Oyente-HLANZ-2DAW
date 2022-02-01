@@ -1,4 +1,5 @@
-const getInfo = async (props) => {
+const getInfo = async (searchTerm) => {
+    //porque no puedo con props.searchTerm en la url?
     try{
         //ahora realizo una consulta a la API
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=metric&appid=2b4e73c14a33e69a31d72a6ea2c0aef2&lang=ES`;

@@ -15,7 +15,7 @@ fetch("https://jsonplaceholder.typicode.com/users/1")
 const albunes = document.getElementById("albunes");
 
 fetch("https://jsonplaceholder.typicode.com/albums")
-    .then(response => response.json())
+    .then(response => response.json())//esto devuelve una promesa, el string del json, la cual se consume para obtener el objeto usable de json
     .then(data => {
         //console.log(data);
         for(let key in data){

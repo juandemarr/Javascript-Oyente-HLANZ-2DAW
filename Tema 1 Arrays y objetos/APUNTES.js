@@ -1,0 +1,1 @@
+.find( () => ) //va sin corchetes

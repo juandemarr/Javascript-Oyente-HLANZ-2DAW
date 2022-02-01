@@ -28,7 +28,7 @@ AHORA SE USA WEB STORAGE. Se ven en la consola del navegador, aplicacion
 *localStorage Permanecen, no fecha de expiracion
 
 Primero comprobar si el navegador es compatible
-if(typeof(Storage)!="undefined"){
+if(typeof(Storage)!=="undefined"){
     alert("El navegador soporta webstorage");
 }else{
     alert("El navegador no soporta webstorage")

@@ -1,11 +1,13 @@
 import React from 'react';
 
-const APIWeatherInfo = ({temp,y,poner todas las variables}) => {
+const APIWeatherInfo = ({temp,humidity,pressure,description,name,speed,country,sunset}) => {
     //destructuring al coger las variables
     //probando a pasar las variables del otro componente a este
   return(
     <div>
-        Hola undo desde APIWeatherInfo
+        <p>Temperatura: {temp}</p>
+        <p>Humedad: {humidity}</p>
+        <p>Presion: {pressure}</p>
     </div>
   );
 };
