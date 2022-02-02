@@ -1,0 +1,10 @@
+REACT
+https://es.reactjs.org/docs/getting-started.html
+https://es.reactjs.org/docs/components-and-props.html
+https://es.reactjs.org/docs/getting-started.html
+https://es.reactjs.org/docs/hooks-state.html
+https://es.reactjs.org/docs/hooks-effect.html
+REACT ROUTER DOM
+documentacion => https://reactrouter.com/docs/en/v6
+ejemplos basicos => https://reactrouter.com/docs/es/v6/examples/basic
+tutorial completo => https://reactrouter.com/docs/en/v6/getting-started/tutorial

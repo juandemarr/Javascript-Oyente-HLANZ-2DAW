@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import datos from '../peliculas.json';
 
 const Pelicula = () => {
-    const params = useParams();
+    const params = useParams();//params es un objeto, con una clave que se llama con el nombre de la variable que pusimos en route /:
     const navigate = useNavigate();
 
     function handleVolver(){
@@ -12,8 +12,9 @@ const Pelicula = () => {
 
     function getPeliculaID(){
         return datos.results.find( (pelicula) => pelicula.id === parseInt(params.peliculaID) );
-        //este pelicula es el nombre que quiera darle al objeto que esta dentro de datos.results, a lo que se le
-        //ha aplicado el find
+        //el id es numero, la url es string, con 3 iguales nunca seria igual, por lo que convertimos el texto en entero, o viceversa
+        //mejor que usar dos iguales solo
+        //este pelicula es el nombre que quiera darle al objeto que esta dentro de datos.results
     }
 
     const peliculaBuscada = getPeliculaID();

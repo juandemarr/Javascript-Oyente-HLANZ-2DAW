@@ -171,7 +171,18 @@ const titulo = persona?.trabajoActual?.titulo;
 
 
 ///////////////////////12. Metodos importante de arrays a dominar
-//find() y findIndex()
+//find() y findIndex() necesitan una callback (funcion arrow)
+var a = ["juan", "pepe"];
+a.find( (nombre) => nombre === "juan");
+
+a.find( (nombre) => nombre != "pepe");
+
+a.filter( (nombre) => nombre.includes("ju")); //si contiene ju
+
+a.filter( (nombre) => !nombre.includes("ju")); //que no contenga
+
+//la diferencia entre find y filter es que find devuelve SOLO la primera ocurrencia, fitler lo devuelve todo
+
 //some()
 //includes()
 //every()

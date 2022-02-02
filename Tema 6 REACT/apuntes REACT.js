@@ -142,6 +142,7 @@ COMENTAR
 ----EVENTOS
 Eventos sinteticos, se traducen a eventos del DOM que no usa
 En sintaxis camelCase
+por estandar se usa handlelo que sea para definir la funcion del evento
 
 ----CONTEXTO THIS
 //estas llaves crean un contexto, por lo que el this.state no funciona ya que ese this se refiere 
@@ -252,11 +253,13 @@ react-router-dom v.6
 
 el esquema de rutas se pone en la pag de entrada: index.js
 
+el replace to se usa en useNavigate, y el history esta tbn en useNavigate
 <BrowserRouter>
     <Routes>
         <Route path="/" element={<Layout />} />    //entre llaves se pone a donde quiero ir, nombre del componente
         <Route path="/pelicuals" element={<PeliculasGrid/>} />
         <Route path="*" element={<Navigate replace to ="/" /> } />    // * => todo lo que no sea lo anterior lo envia a / con navigate replace to
+                                //replace to tbn borra el historial previo
     </Routes>
 </BrowserRouter>
 
@@ -283,6 +286,8 @@ ReactDOM.render(
 document.getElementById('root')
 );
 
+//done este el route que englobe, en ese componente estará el outlet
+
 
 Para recorrer un array con .map() y dentro una funcion flecha, la cual siemre tiene que tener un return()
 o cambiar las llaves de la arrow function por () , que tienen implicito el return
@@ -298,37 +303,49 @@ HOOK useParams()
 
 en el index.js
 <Route path="peliculas/:peliculaID" element={<Pelicula/>} /> // este nombre despues de : da igual, 
-luego lo usaremos en params.peliculaID
+luego lo usaremos en params.peliculaID en pelicula
 
 en el componente PeliculasGrid
-<Link to={pelicula.id.toString()}><li></li></Link> hay que convertir la ruta a texto, por si el id es un numero
+<Link to={pelicula.id.toString()}><li></li></Link> hay que convertir la ruta a texto, por si el id es un numero la ruta no lo acepta
 
 este numero que envio a la ruta, se recoge con esto en el componente de esa ruta con:
 const parms = useParams();
 params.peliculaID al ser la url, es string
 
 
-//PARA VOLVER A OTRA RUTA; NECESARIO OTRO HOOK useNavigate()
+//PARA VOLVER A OTRA RUTA; NECESARIO OTRO HOOK useNavigate(), sustituye a useHistory de versines anteriores
 const navigate = useNavigate();
 
     function handleVolver(){
         navigate("/peliculas");
     }
 
+navigate(-1) //vuelve uno a tras en el historial
+
 
 //BUSCADOR
+HOOK useSearchParams()
+al ser input de buscar es especial y se usa eso para que añada el search o query de busqueda de las urls profesionales
+
 https://www.google.es/search?q=gato //este search?q es una query, lo simularemos con useSearchParams()
-
 //Para realizar busquedas en formularios usaremos las queryParams o llamados parámetros de búsqueda
-//para ello necesitamos el Hook useSearchParams
+//para ello necesitamos el Hook useSearchParams, equivalente al useState
 
-  const [searchP , setSearchP] = useSearchParams();
+  const [searchP , setSearchP] = useSearchParams();  //es una variable de estado, 
+    con useState accediamos a la variable llamandola sin mas, aquí esta variable es un objeto con muchos datos
+    accedemos con .get()
 
-  es una variable de estado, al ser input de buscar es especial y se usa eso
+  const filtrado = searchP.get("search") ?? "" //si es distinto de null o undefined, quedate con lo primero
+    //que traiga lo que haya en el indice search
 
-
-  const filtrar = searchP.get("search") ?? "" //si es distinto de null o undefined, quedate con lo primero
-
+    <input
+        type="text"
+        placeholder="Buscar pelicula"
+        value={filtrado}//nunca puede ser null, ni al principio cuando esta pintando el componente
+        onChange={handleFiltrar}
+      />
+      siempre usaremos el evento onChange, para que sea al pulsar intro ya se usaria la funcionalidad del form, haciendo 
+      el preventDefault para que no recargue
 
 */
 

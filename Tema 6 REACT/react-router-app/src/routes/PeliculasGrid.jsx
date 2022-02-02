@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, Outlet, useSearchParams } from 'react-router-dom';
 import datos from '../peliculas.json';
 
 const PeliculasGrid = () => {
@@ -15,24 +15,37 @@ const PeliculasGrid = () => {
   const filtrado = searchP.get("search") ?? "" //si es distinto de null o undefined, quedate con lo primero
 
   return (
-    <>
+    <div style={{display:"grid" , gridTemplateColumns:"1fr 1fr"}}>
+      <div>
       <h1>Peliculas</h1>
       
       <input
         type="text"
         placeholder="Buscar pelicula"
-        value={filtrado}//nunca puede ser null, ni al principio cuando esta pintando el componente
+        value={filtrado}//nunca puede ser null, ni al principio cuando esta pintando el componente, por eso se hace lo de arriba
+        //necesario para que permanezca la palabra en el input al igual que en la url, aun refrescando
         onChange={handleFiltrar}
       />
 
       <ul>{/* .results es xk en el archivo los datos estan ahí dentro */}
-        {datos.results.map((pelicula) => {
+        {datos.results.filter( (pelicula) => {
+          const nombrePelicula = pelicula.title.toLocaleLowerCase();
+          return nombrePelicula.includes(filtrado.toLocaleLowerCase()) 
+        }).map((pelicula) => {
           return (/*rutas relativas*/
-            <Link to={pelicula.id.toString()}><li key={pelicula.id}>{pelicula.title}</li></Link>
+            <li key={pelicula.id}>
+              <Link to={pelicula.id.toString()}>{pelicula.title}</Link>
+            </li>
           )
         })}
       </ul>
-    </>
+      </div>
+      <div>
+      <article>
+        <Outlet />
+      </article>
+      </div>
+    </div>
   );
 };
 
