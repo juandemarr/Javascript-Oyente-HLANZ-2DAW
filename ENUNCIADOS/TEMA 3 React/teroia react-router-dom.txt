@@ -8,3 +8,7 @@ REACT ROUTER DOM
 documentacion => https://reactrouter.com/docs/en/v6
 ejemplos basicos => https://reactrouter.com/docs/es/v6/examples/basic
 tutorial completo => https://reactrouter.com/docs/en/v6/getting-started/tutorial
+
+REACT HOOK FORM
+https://react-hook-form.com/es/get-started/
+https://www.youtube.com/watch?v=RkXv4AXXC_4

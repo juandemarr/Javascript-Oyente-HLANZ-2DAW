@@ -147,6 +147,6 @@ const getWeather = async () => {
         let data = await res.json();
 
         //data.main ya usar sus claves y maquetar
-    }
+    }catch(){}
 }
 */

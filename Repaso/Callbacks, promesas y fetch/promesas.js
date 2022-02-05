@@ -1,5 +1,5 @@
-//se construyen con new Promise() la cual es una funcion arrow, pasandole como argumneto resolve y reject
-//return new Promise((resolve,reject) => {})  
+//se construyen con new Promise() la cual es una funcion arrow, pasandole como argumento resolve y reject
+//new Promise((resolve,reject) => {})  
     //resolve, simboliza la consecucion de la promesa. Si siempre se va a conseguir, se omite el reject.
     //reject, la no consecucion de la promesa
         //estos dos parametros funcionan como las callback, se definen dentro con el parametro de lo que van a devolver,
