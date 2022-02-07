@@ -1,13 +1,8 @@
 //import React , {Component} from "react";
 import React, {useState} from "react"; //este useState se llama HOOK
 //VERSION ANTIGUA
-/*
-//Para asignar valores por defecto en un componente clase. Tbn sirve para las funciones
-TarjetaFruta.defaultProps = {
-    cantidad : 5,
-    precio : 3.65,
-}
 
+/*
 class TarjetaFruta extends Component{
     constructor(props){
         super(props);
@@ -38,9 +33,9 @@ class TarjetaFruta extends Component{
             <div>
                 <h3>{this.props.nombreFruta}</h3>
                 <p>Cantidad: {this.state.cantidad}</p>
-                <button onclick={this.agregar}>Agregar</button>
-                <button onclick={this.quitar}>Quitar</button>
-                <button onclick={this.limpiar}>Borrar</button>
+                <button onClick={this.agregar}>Agregar</button>
+                <button onClick={this.quitar}>Quitar</button>
+                <button onClick={this.limpiar}>Borrar</button>
                 <hr/>
                 <p>{this.props.precio}</p>
                 
@@ -48,6 +43,12 @@ class TarjetaFruta extends Component{
         </>
         );
     }
+}
+
+//Para asignar valores por defecto en un componente clase. Tbn sirve para las funciones
+TarjetaFruta.defaultProps = {
+    cantidad : 5,
+    precio : 3.65,
 }
 */
 

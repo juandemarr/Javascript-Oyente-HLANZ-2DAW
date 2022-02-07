@@ -7,7 +7,8 @@ const ImagenesAleatorias = (props) => {
 
     const src = props.numero + ".jpg";
 
-    let classNameImg = enabled ? "" : "disabled";
+    let classNameImg = enabled ? "" : "disabled"; //Al hacer click, cambia la variable enable, la cual segun sea true o false,
+                                                  // asigna un nombre a la clase de la imagen u otro (disabled)
 
     let classNamePicture = "";
     

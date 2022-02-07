@@ -35,8 +35,8 @@ import { render } from "react-dom";
 //lo de arriba ahora en componente de clase
 class Componente extends Component{
     constructor(props){
-        super(props);
-        this.nombre = props.nombre;
+        super(props);//llama al constructor de su padre, de quien extiende
+        this.nombre = props.nombre;//se crean las variables con this.
         this.meses = props.meses;
         this.datos = props.datos;
     }

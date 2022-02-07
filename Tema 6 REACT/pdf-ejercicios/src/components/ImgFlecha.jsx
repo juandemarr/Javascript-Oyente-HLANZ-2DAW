@@ -2,23 +2,20 @@ import React, { useState } from 'react';
 
 const Img = () => {
     const [opacity,setOpacity] = useState(1);
-
+    //const img = document.getElementById("imgAhsoka"); //la primera vez da error y no lo encuentra
     function handleOpacity(){
-        
-        document.getElementById("imgAhsoka").style.opacity=opacity;
-        setOpacity(1);
-        console.log(opacity);
+        //setOpacity((prev)=>prev-0.5);
+        setOpacity(0.5);
+        document.getElementById("imgFlecha").style.opacity=opacity;
     }
     function handleOpacityReverse(){
-        
-        document.getElementById("imgAhsoka").style.opacity=opacity;
-        setOpacity(0.5);
-        console.log(opacity);
+        setOpacity(1);
+        document.getElementById("imgFlecha").style.opacity=opacity;
     }
 
     return (
         <div>
-            <img id="imgAhsoka" src="/img/ahsoka.jpg" alt="Ahsoka" style={{width:"300px"}} 
+            <img id="imgFlecha" src="/img/ahsoka.jpg" alt="Ahsoka" style={{width:"300px"}} 
                 onMouseEnter={handleOpacity}
                 onMouseLeave={handleOpacityReverse}
                 ></img>

@@ -100,9 +100,12 @@ const Componente = (props) => (
 </>
 );
 
-.map para recorrer array
+export default ImagenesAleatorias;
 
-El render lo unico obligatorio en cada ocmponente
+
+.map(valor, indice) para recorrer array
+
+El render (return) lo unico obligatorio en cada ocmponente
 
 
 babeljs.io en try out, marcar todos los settings menos time travel, y activar abajo react
@@ -111,11 +114,13 @@ babel traduce jsx
 
 ----------------------
 Para poner js dentro de jsx, indicar le nombre de la variable entre {}
-Estas var se pasan como props en los argumentos del componente funcional, y se meten al llamar al componete en app.js
+Para indicar un estilo, escribimos el valor entre {{}} : <div style={{display:"grid" , gridTemplateColumns:"1fr 1fr"}}>
+
+Estas var se pasan como props en los argumentos del componente funcional, y se meten al llamar al componente en app.js
 este props es un objeto, por eso se llama con props.nombre (como se vio en babel try out)
 
 DATOS QUE SE PUEDEN PASAR A LAS PROPS al llamar al compnente
-string, {var creada arriba}, numeros {2.85}
+string, {var creada arriba}, numeros {2.85}, array, objeto, boolean
 
 Para listas hay que indicarle a cada elemento un key como atributo de la etiqueta
 
@@ -131,7 +136,7 @@ VARIOS
 Para exportar mas de un componente en un archivo:
 export default {Componente,Componente2};
 
-Para importarlo, crear un grupo y luego usar <grupoComponente />
+Para importarlo, luego de crear la variable, acceder a cada uno como <nombreVariable.Componente/>
 import grupoComponentes from './Componentes/Componente';
 
 COMENTAR
@@ -142,16 +147,90 @@ COMENTAR
 ----EVENTOS
 Eventos sinteticos, se traducen a eventos del DOM que no usa
 En sintaxis camelCase
-por estandar se usa handlelo que sea para definir la funcion del evento
+por estandar se usa handle lo que sea para definir la funcion del evento
 
 ----CONTEXTO THIS
 //estas llaves crean un contexto, por lo que el this.state no funciona ya que ese this se refiere 
-///al contexto de la funcion, no al de arriba del constructor
+//al contexto de la funcion, no al de arriba del constructor
 
 -----BINDEO
-o binding sobre los metodos que el this pierde el contexto de clase
-
+o binding sobre los metodos que el this pierde el contexto de clase, en los componetes de clase y funcionales no arrow
 en las arrow function no hace falta ya que coge el this desde arriba
+
+//las funciones en los componentes de clase siempre hay que definirlas en el constructor con this.
+//por eso hay que hacerle el bindeo o asociacion con this.
+
+import React , {Component} from "react";
+
+class TarjetaFruta extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            cantidad : 0,
+        };
+
+        this.agregar = this.agregar.bind(this); 
+        this.quitar = this.quitar.bind(this);
+    }
+
+    agregar(){
+        this.setState({ cantidad : this.state.cantidad + 1});
+    };
+}
+
+render(){
+    return(
+        <button onClick={this.agregar}>Agregar</button>
+    )
+}
+
+--- FORMA MODERNA
+//Property Initalizers != HOOK
+//Quito el constructor, el super y el this
+//no hay bindeo (ya que se usa siempre arrow functions)
+
+class TarjetaFruta extends Component{
+    state = {
+        cantidad : 0,
+    };
+
+    agregar = () => {
+        this.setState({cantidad : this.state.cantidad + 1});
+    }
+}
+return(
+    <button onClick={this.agregar}>Agregar</button>
+)
+
+--- VERSION MEGAMODERNA Y A UTILIZAR
+--- Hook : useState, con componentes funcionales
+Hay que importar el hook: import React, {useState} from "react";
+La variable la llamo llamando a su funcion set
+Al llamar a la funcion ya no se hace con this.funcion, ya que no es un componente de clase, sino funcional
+Solo se usa el nombre de la funcion de forma asincrona (sin parentesis)
+
+const TarjetaFruta = ({nombreFruta , precio = 3.5}) => { //destructuring de props, ventaja, usar valores por defecto
+    const [cantidad, setCantidad] = useState(0); //nombreVariable, setNombreVariable y entre parentesis del useState 
+                                                //el valor inicial, si va aser un array useState([])
+                                                //objeto useState({})
+    function agregar(){ // o arrow function const agregar = () => {}
+        return setCantidad(cantidad+1);
+    }
+}
+return(
+    <button onClick={agregar}>Agregar</button>
+)
+
+
+//////
+--- Formas de cmabiar el estado con el hook useState, con arrow function
+const handlerContador1 = (e) => {
+    //return setContador1(contador1 + 1);//esto funciona el 95%
+    return setContador1((prevEstado) => prevEstado + 1);//al 100%, pasandole una arrow function
+};//si abro llaves tengo que poner return, si abro parentesis no
+/////
+
+
 
 ----//con arrow function para el esatdo
     //cogemos el valor del estado que repinta la vista al cambiar, en este caso cantidad, y al lado setMismonombre, esta 
@@ -174,6 +253,11 @@ useEffect(() => {
 useEffect(() => {
     console.log("Se ejecuta cuando modificas el state de contador1");
 },[contador1]);
+
+useEffect(() => {
+        console.log("Se ejecuta al inicio");
+})
+
 
 
 --- propiedad children
@@ -231,10 +315,10 @@ en la carpeta helpers dentro de src, haremos los get de la api
 async await devuelve siempre una promesa
 
 /////////////////////
-en el navegador, iinspector, network, 
+en el navegador, inspector, network, 
 
 ////////
-Al componete de la pelicula, odnde colocalmos la imagen, mejor ponerle el width aqui para que reserve el espacio
+Al componete de la pelicula, donde colocamos la imagen, mejor ponerle el width aqui para que reserve el espacio
 
 CSS dinamicos, usar modulos
 nombre.module.css
@@ -274,7 +358,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout/>}>     // se engloba para decir que todo eso se quede en una parte dentro de la pag principal, y hay que indica adonde quiero apuntar
-        <Route index element={<Hoome />} />     // La principal se sustituye por index 
+        <Route index element={<Home />} />     // La principal se sustituye por index 
         <Route path="peliculas" element={<PeliculasGrid/>} />
         <Route path="about" element={<About/>} />
         <Route path="*" element={<Navigate replace to ="/" /> } />
@@ -319,6 +403,7 @@ const navigate = useNavigate();
     function handleVolver(){
         navigate("/peliculas");
     }
+y esta funcion la llamo en onClick
 
 navigate(-1) //vuelve uno a tras en el historial
 
@@ -335,8 +420,13 @@ https://www.google.es/search?q=gato //este search?q es una query, lo simularemos
     con useState accediamos a la variable llamandola sin mas, aquí esta variable es un objeto con muchos datos
     accedemos con .get()
 
+  const handleFiltrar = (e) => {
+    setSearchP({search : e.target.value}) //en searchP este hook guarda UN OBJETO con el indice search
+  }
+
   const filtrado = searchP.get("search") ?? "" //si es distinto de null o undefined, quedate con lo primero
-    //que traiga lo que haya en el indice search
+    
+    el objeto creado por useSearchParam es especial y se accede a sus valores con .get()
 
     <input
         type="text"
