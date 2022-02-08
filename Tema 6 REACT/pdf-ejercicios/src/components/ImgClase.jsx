@@ -14,6 +14,7 @@ class ImgClase extends Component{
     handleOpacity(){
         this.setState({opacity : 0.5})
         document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("onMouseEnter");
     }
     handleOpacityReverse(){
         this.setState({opacity : 1})

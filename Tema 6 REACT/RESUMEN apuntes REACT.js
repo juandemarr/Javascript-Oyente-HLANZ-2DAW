@@ -300,3 +300,56 @@ Se ssutituye <a> por <Link to="/">Home</Link>
 --- HOOK useSearchParams() especial de useParams para los input type search //ver en api-movie
 --- HOOK useNavigate() para volver a otra ruta //ver en apuntes
 
+
+
+USEEFFECT
+efecto primario de REACT: pintar en el dom
+efectos secundarios, hacer mas cosas como conectarse a apis, geo etc. <= useEffect
+Actua como puente entre el html y react:
+    extraer algo que vive en react, como sus estados, hacia afuera al html
+    y obtener cambios de html y llevarlo adentro de react, puente en ambos sentidos
+Se pueden definir funciones dentro, adjuntar eventos etc, bloqure completo
+
+Ejemplo con un componente funcional:
+import React, {useState,useEffect} from "react";
+export default function App(){
+    const [mostrar, setMostrar] = useState(true);
+
+    return (
+        <div>
+            <button onClick={() => setMostrar(false)} Dejar de mostrar </button>
+            {mostrar ? <MouseColor /> : null}
+        </div>
+    );
+}
+funtion MouseColor(){
+    const [color,setColor] = useState("orange");
+
+    useEffect(()=>{
+        function onMouseMove(evento){
+            if ( evento.clientX < window.innerWidth / 2)
+                setColor("orange");
+            else
+                setColor("blue");
+        }
+        window.addEventListener("mousemove",onMouseMove); //al estar dentro de useEffect, cada vez que se ejecute se añadira el evento a la lista de los que hay
+    
+        return () => { //limpia el mouseEffect en caso de no ser llamado este componente
+            window.removeEventListener("mousemouve",onMouseMouve);
+        }
+    },[])
+
+    console.log("ocurrio el render");
+    return <div style = {{height = "100vh" , backgroundColor = color}}></div>;
+    
+}
+
+getEventListeners(window); //muestra todos los eventos agregados
+solucion: dependencias de useEffect, array que se pasa como segundo argumento, dsp de la funcion
+si esta vacio se ejecuta solo una vez, si se le pasa una variable de estado, se ejecuta cada vez que ese estado
+cambie
+
+Para limpiar el useEffect, esos efectos secundarios de un componente, el cual hemos dejado de 
+llamar en el componente principal, le hacemos un return y funcion arrow
+Si no tiene al final [] el useEffect y se ejecuta cada vez que cambia el estado, esta funcion de return 
+se va a ejecutar PRIMERO, es decir primero limpia y luuego ejecuta lo que tenga useEffect

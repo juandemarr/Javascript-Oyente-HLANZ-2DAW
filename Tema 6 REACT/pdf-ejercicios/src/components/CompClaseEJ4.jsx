@@ -14,7 +14,7 @@ export class MyHelloComponent extends React.Component{
     render(){
         return(
             <>
-                <h2>Componete de clase</h2>
+                <h2>Componente de clase</h2>
                 <h3>{this.state.myText}</h3>
                 <button onClick={this.handleCambiarEstado}>Change text</button>
             </>

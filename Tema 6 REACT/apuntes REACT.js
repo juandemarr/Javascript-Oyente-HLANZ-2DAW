@@ -244,8 +244,20 @@ const handlerContador1 = (e) => {
 para añadir mas de una clase, si la cogemos convariable, tenemos que definir esa var arriba e irle concatenando las clases
 className={classNameImg}
 
+
+debugger; //frena la ejecucion, es como un breakpoint
+
+
 --- OTRO HOOK, useEffect
-useEffect, para que al arrancar la app se ejecute, al menos una vez
+efecto primario de REACT: pintar en el dom
+efectos secundarios, hacer mas cosas como conectarse a apis, geo etc. 
+Actua como puente entre el html y react, extraer algo que vive en react, como sus estados, hacia afuera al html
+
+siempore recibe copmo argumento una funcion, arrow o anonima
+Se ejecuta cada vez que el componente hace render,y eso es cada vez que el estado cambie
+despues de pintar en el dom se ejecuta
+
+useEffect, para que se ejecute siempre, incluso al arrancar la app
 useEffect(() => {
     console.log("Se ejecuta al inicio solo una vez");
 },[])
@@ -436,6 +448,56 @@ https://www.google.es/search?q=gato //este search?q es una query, lo simularemos
       />
       siempre usaremos el evento onChange, para que sea al pulsar intro ya se usaria la funcionalidad del form, haciendo 
       el preventDefault para que no recargue
+
+
+--- FORM
+--- npm install react-hook-form
+
+
+
+EJ:
+en app poner 
+function App(){
+    return(
+        <div className = "container">
+            <h2>Formularios con React Hook Form</h2>
+            <FormLogin /> //crear componete con hello there
+        </div>
+    )
+}
+
+function FormLogin(){
+    handleSubmit(){
+
+    }
+    return(
+        <div className="container my-5">
+            <h2 className="mb-3">Iniciar sesion</h2>
+            <form onSubmit={handleSubmit} className="mb-5">
+                <input 
+                    placeholder="Ingrese nombre de usuario"
+                    className="form-control mb-2"
+                    name="username"    
+                />
+                <input 
+                    placeholder="email"
+                    className="form-control mb-2"
+                    name="email"    
+                />
+                <input 
+                    placeholder="password"
+                    className="form-control mb-2"
+                    name="password"    
+                />
+
+                <button type="submit" className="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    )
+}
+
+
+escribir useStateSnippet
 
 */
 

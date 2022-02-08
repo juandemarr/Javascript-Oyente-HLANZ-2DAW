@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Img = () => {
     const [opacity,setOpacity] = useState(1);
@@ -12,6 +12,15 @@ const Img = () => {
         setOpacity(1);
         document.getElementById("imgFlecha").style.opacity=opacity;
     }
+    useEffect(() => {
+        console.log("entro con useEffect");
+        handleOpacity();
+    },opacity);
+
+    useEffect(()=>{
+        console.log("salgo con useEffect");
+        handleOpacityReverse();
+    },opacity);
 
     return (
         <div>

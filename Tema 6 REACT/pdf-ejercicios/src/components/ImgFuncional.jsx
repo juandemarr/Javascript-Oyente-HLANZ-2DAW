@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function ImgFuncional(){
-    const [opacity,setOpacity] = useState();
+    const [opacity,setOpacity] = useState(1);
     //const img = document.getElementById("imgAhsoka");
     function handleOpacity(){
         setOpacity(0.5);
