@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from 'react';
 
 const Img = () => {
-    const [opacity,setOpacity] = useState(1);
-    //const img = document.getElementById("imgAhsoka"); //la primera vez da error y no lo encuentra
-    function handleOpacity(){
-        //setOpacity((prev)=>prev-0.5);
+
+    const [opacity, setOpacity] = useState(1);  
+
+    function opacityOn(){
         setOpacity(0.5);
-        document.getElementById("imgFlecha").style.opacity=opacity;
     }
-    function handleOpacityReverse(){
+
+    function opacityOff(){
         setOpacity(1);
-        document.getElementById("imgFlecha").style.opacity=opacity;
     }
-    useEffect(() => {
-        console.log("entro con useEffect");
-        handleOpacity();
-    },opacity);
 
     useEffect(()=>{
-        console.log("salgo con useEffect");
-        handleOpacityReverse();
-    },opacity);
+        /* if(parseInt(window.getComputedStyle(document.getElementById("imgFlecha")).getPropertyValue("opacity")) === 1){
+            opacityOn();
+        }else{
+            opacityOff();
+        } */
+        document.getElementById("imgFlecha").style.opacity = opacity;
+        console.log("useEffect " + opacity);
+    },[opacity]);
 
+    
     return (
         <div>
-            <img id="imgFlecha" src="/img/ahsoka.jpg" alt="Ahsoka" style={{width:"300px"}} 
-                onMouseEnter={handleOpacity}
-                onMouseLeave={handleOpacityReverse}
-                ></img>
-                <h2>Opacity: {opacity}</h2>
+            <img id="imgFlecha" src="/img/ahsoka.jpg" alt="Ahsoka" style={{width:"300px" , opacity : 1}} 
+                onMouseEnter={opacityOn} onMouseLeave={opacityOff}
+            />
+            <h2>Opacity: {opacity}</h2>
         </div>
     );
 };

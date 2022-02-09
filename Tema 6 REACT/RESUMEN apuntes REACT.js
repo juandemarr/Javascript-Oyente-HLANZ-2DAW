@@ -303,6 +303,8 @@ Se ssutituye <a> por <Link to="/">Home</Link>
 
 
 USEEFFECT
+Siempre que queramos cambiar algo segun un cambio de estado, ese algo lo hacemos dentro de este hook
+
 efecto primario de REACT: pintar en el dom
 efectos secundarios, hacer mas cosas como conectarse a apis, geo etc. <= useEffect
 Actua como puente entre el html y react:
@@ -349,7 +351,25 @@ solucion: dependencias de useEffect, array que se pasa como segundo argumento, d
 si esta vacio se ejecuta solo una vez, si se le pasa una variable de estado, se ejecuta cada vez que ese estado
 cambie
 
-Para limpiar el useEffect, esos efectos secundarios de un componente, el cual hemos dejado de 
-llamar en el componente principal, le hacemos un return y funcion arrow
+
 Si no tiene al final [] el useEffect y se ejecuta cada vez que cambia el estado, esta funcion de return 
 se va a ejecutar PRIMERO, es decir primero limpia y luuego ejecuta lo que tenga useEffect
+
+
+**********Si quieres cambiar cualquier propiedad de un elemento del dom segun un estado, hacerle esta asignacion en el useEffect,
+como asignarle el style de opacity
+
+
+En componentes de clase, donde no existen los hooks, el equivalente a useEffect es:
+    componentDidMount() {
+        document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("diMount " + this.state.opacity);
+    }
+    componentDidUpdate() {
+        document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("diUpdate " + this.state.opacity);
+    }
+////////////////////////////////////////
+
+
+solo se puede usar aync await en funciones que sean asincornas, que en la red devuelvan los datos en pequeños trozos separados de datos

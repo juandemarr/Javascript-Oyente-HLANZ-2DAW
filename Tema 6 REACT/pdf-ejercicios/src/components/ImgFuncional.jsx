@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ImgFuncional(){
     const [opacity,setOpacity] = useState(1);
-    //const img = document.getElementById("imgAhsoka");
+    
     function handleOpacity(){
         setOpacity(0.5);
-        document.getElementById("imgFuncional").style.opacity=opacity;
     }
     function handleOpacityReverse(){
         setOpacity(1);
-        document.getElementById("imgFuncional").style.opacity=opacity;
     }
+
+    useEffect(()=>{
+        document.getElementById("imgFuncional").style.opacity=opacity;
+    },[opacity])
+
     return(
         <div>
             <img id="imgFuncional" src="/img/ahsoka.jpg" alt="Ahsoka" style={{width:"300px"}} 

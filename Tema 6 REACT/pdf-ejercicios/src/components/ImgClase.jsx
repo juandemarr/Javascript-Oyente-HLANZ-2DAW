@@ -13,12 +13,19 @@ class ImgClase extends Component{
     }
     handleOpacity(){
         this.setState({opacity : 0.5})
-        document.getElementById("imgClase").style.opacity = this.state.opacity;
-        console.log("onMouseEnter");
     }
     handleOpacityReverse(){
         this.setState({opacity : 1})
-        document.getElementById("imgClase").style.opacity=this.state.opacity;
+    }
+
+    //Equivalente al hook useEffect, el primero al montarse y el segundo al actualizarse el render
+    componentDidMount() {
+        document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("diMount " + this.state.opacity);
+    }
+    componentDidUpdate() {
+        document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("diUpdate " + this.state.opacity);
     }
 
     render(){

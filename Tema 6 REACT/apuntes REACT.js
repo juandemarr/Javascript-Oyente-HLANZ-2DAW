@@ -249,9 +249,12 @@ debugger; //frena la ejecucion, es como un breakpoint
 
 
 --- OTRO HOOK, useEffect
+Siempre que queramos cambiar algo segun un cambio de estado, ese algo lo hacemos dentro de este hook
 efecto primario de REACT: pintar en el dom
 efectos secundarios, hacer mas cosas como conectarse a apis, geo etc. 
-Actua como puente entre el html y react, extraer algo que vive en react, como sus estados, hacia afuera al html
+Actua como puente entre el html y react:
+    extraer algo que vive en react, como sus estados, hacia afuera al html
+    y viceversa
 
 siempore recibe copmo argumento una funcion, arrow o anonima
 Se ejecuta cada vez que el componente hace render,y eso es cada vez que el estado cambie
@@ -499,5 +502,37 @@ function FormLogin(){
 
 escribir useStateSnippet
 
+
+--- npm install firebase
+
+en firebase, creat project crud-react, y luego authentication
+quitar google analytics
+agregar proveedor nuevo, con email con contraseña, agregar google, nombre crud-react-app
+firestore-database, modo prueba, 
+crear coleccion tareas, campo email string y arriba id automatico
+arriba en la ruedad de ajustes, configuracion del proyecto, crear una aplicacion en el apartado de apps,
+ en el icono de web. nombre app-crud-react, no marcar el hosting
+
+
+Para registrarse con firebase, poner contraseña de  minimo 6 caracteres
+
+
+/////////////////////////////////////////
+
+**********Si quieres cambiar cualquier propiedad de un elemento del dom segun un estado, hacerle esta asignacion en el useEffect,
+como asignarle el style de opacity
+En componentes de clase, donde no existen los hooks, el equivalente a useEffect es:
+    componentDidMount() {
+        document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("diMount " + this.state.opacity);
+    }
+    componentDidUpdate() {
+        document.getElementById("imgClase").style.opacity = this.state.opacity;
+        console.log("diUpdate " + this.state.opacity);
+    }
+////////////////////////////////////////
+
+
+solo se puede usar aync await en funciones que sean asincornas, que en la red devuelvan los datos en pequeños trozos separados de datos
 */
 
