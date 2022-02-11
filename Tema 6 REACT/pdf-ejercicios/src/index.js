@@ -1,3 +1,4 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Boton from './components/Boton';
@@ -7,7 +8,7 @@ import ImgFlecha from './components/ImgFlecha';
 import {MyHelloComponent} from './components/CompClaseEJ4';
 import MyHelloComponentFunctional from './components/CompFuncionalEJ4';
 import Temporizador from './components/Temporizador';
-import './index.css';
+import Ej6 from './components/Ej6';
 
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
     <MyHelloComponent />
     <MyHelloComponentFunctional />
     <Temporizador/>
+    <Ej6 />
   </div>
   ,document.getElementById('root')
 );
