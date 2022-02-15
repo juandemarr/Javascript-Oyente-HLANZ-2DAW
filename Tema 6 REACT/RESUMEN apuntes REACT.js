@@ -373,3 +373,14 @@ En componentes de clase, donde no existen los hooks, el equivalente a useEffect 
 
 
 solo se puede usar aync await en funciones que sean asincornas, que en la red devuelvan los datos en pequeños trozos separados de datos
+
+
+--- npm install firebase
+
+carpeta components, carpeta helpers, fichero firebase-config.js
+añadir export const db = getFirestore(app); //esto sirve para no tener que importarlo en cada componente
+import {getFirestore} from "firebase/firestore";
+
+
+Comprobar que no este guardado previamente
+añadir span abajo diciendo que se agrego, esta repetido o si hay campo vacio

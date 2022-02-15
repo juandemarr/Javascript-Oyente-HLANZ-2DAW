@@ -12,3 +12,6 @@ tutorial completo => https://reactrouter.com/docs/en/v6/getting-started/tutorial
 REACT HOOK FORM
 https://react-hook-form.com/es/get-started/
 https://www.youtube.com/watch?v=RkXv4AXXC_4
+
+Buscador del tamaño de los paquetes npm
+https://bundlephobia.com/ 

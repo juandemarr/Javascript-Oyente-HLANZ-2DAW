@@ -275,22 +275,34 @@ useEffect(() => {
 
 
 
---- propiedad children
+--- propiedad children, junto a props son las dos formas de pasar variables del padre al hijo
 
 <Datos edad={edad}>
-    <Hijo/>
+    <Hijo/> //esto que hay aqui dentro es children
 </Datos> /* aqui se consume */
 /*
 import React from 'react';
 
-const Datos = ({edad},children) => {
+const Datos = ({edad},children) => {//pasandolo por destructuring
   return <div>
       {edad} o si lo llamo arriba props sin {}, aqui seria props.edad 
       {children} parametro especial children, coge lo que se pone dentro del componente
   </div>;
 };
 
-export default APIWeather;
+
+////////Pasar estados como argumentos a otros componentes, esto pasa variables del hijo al padre
+const [dato, setDato] = useState();
+
+return (
+    <Componente1 dato={dato} setDato={setDato}/> //si solo se va a modificar, se pasaria solo setDato, a no se que la modificacion sea setDato(!dato)
+    <input type="text" onClick = {(e) => setDato(e.target.value)}
+)
+//en el otro componente
+function Componente1({dato,setDato}){//pasandole un estado por argumento con su set
+    setDato('pepe');
+}
+
 
 
 SOFTWARE para consumir y verificar API (get/post/etc)
@@ -515,6 +527,9 @@ arriba en la ruedad de ajustes, configuracion del proyecto, crear una aplicacion
 
 
 Para registrarse con firebase, poner contraseña de  minimo 6 caracteres
+
+se puede traer los adtos como un snapshot, cada vez que se modifique la bd, se mostrara aqui, o traerlos directamente
+ y para consultar cambios pedir los datos otra vez
 
 
 /////////////////////////////////////////
