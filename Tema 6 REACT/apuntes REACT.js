@@ -8,6 +8,8 @@ archivo manifiest que indica los modulos cargados etc.
 al instalar modulos se añaden solos a package.json
 los principales son react y react-dom
 
+librerias mas tochas para pasar estados: redux (dificil), useRedux
+
 Cosas necesarias:
 //Node.js
 npm o yarn

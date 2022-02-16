@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import librosServicios from "../helpers/tareas-servicios";
 
-const GuardarLibro = () => {
+const GuardarLibro = ({libroGlobal,setLibroGlobal}) => {
     //--------------declaracion de estados------------
     const [titulo, setTitulo] = useState("");
     const [autor, setAutor] = useState("");
@@ -21,15 +21,15 @@ const GuardarLibro = () => {
         //comprueba si no hay campos vacios
 
         //guardo el libro nuevo. Comprobar que no este guardado previamente
-        const comprobarLibro = doc(db,"libros",titulo)
-        if(comprobarLibro){
+        //const comprobarLibro = doc(db,"libros",titulo)
+        //if(comprobarLibro){
             await librosServicios.addLibros(libroNuevo);
             setTitulo("");
             setAutor("");
             setDescripcion("");
-        }else{
-            error("Ya existe el libro");
-        }
+        //}else{
+            //setError("Ya existe el libro");
+        //}
         
     }
     const handleTitulo = (e)=>{
@@ -44,6 +44,12 @@ const GuardarLibro = () => {
 
 
     //--------------efectos--------------------
+    useEffect(() => {
+      setTitulo(libroGlobal.data.titulo);
+      setAutor(libroGlobal.data.autor);
+      setDescripcion(libroGlobal.data.descripcion);
+    }, [libroGlobal])
+    
 
 
     //--------------pintando el contenido-------------

@@ -384,3 +384,19 @@ import {getFirestore} from "firebase/firestore";
 
 Comprobar que no este guardado previamente
 añadir span abajo diciendo que se agrego, esta repetido o si hay campo vacio
+
+
+todo lo que sea traer datos de la bd o hacer cosas con la bd tiene que ser asincrono, async await
+todos los await por convencion se ponen dentro de try catch
+
+el evento de onClick si necesita parametro, no se declara fuera, sino ahí con un arrow function para poner ese parametro
+onClick={(e) => handleEliminar(libro.id)}
+
+*****cuando los componentes no son padres ni hijos para pasar datos, creamos un estado global en app y lo pasamos a ambos
+
+//EJ 4 relacion 2 REACT, api pokemon
+al conectrase a api, en el useEffect [] llamar a una funcion que cargue todos los datos de la api
+con un find sobre ese array, buscando por el nombre, encuentra el pokemon, y su url, 
+luego hacer otra fetch a esa url
+gestionarlo con el onSubmit del form, no el click del boton
+

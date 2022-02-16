@@ -1,6 +1,6 @@
 //en este fichero voy a generar todos los metodos crud
 import {db} from "./firebase-config";
-import {addDoc, collection, deleteDoc, doc, getDoc, query, updateDoc, where} from "firebase/firestore";
+import {addDoc, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query, updateDoc, where} from "firebase/firestore";
 
 //ahora vendrian los import de las tareas que quiero realizar en el crud
 
@@ -35,6 +35,10 @@ class librosServicios{
     updateLibros = (id, newLibro)=>{
         const libro = doc(db,"libros",id);
         return updateDoc(libro,newLibro);
+    }
+
+    getLibros = () => {
+        return getDocs(query(librosCollection,orderBy("titulo","asc")));
     }
 }
 
