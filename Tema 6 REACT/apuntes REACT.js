@@ -351,7 +351,7 @@ Al componete de la pelicula, donde colocamos la imagen, mejor ponerle el width a
 
 CSS dinamicos, usar modulos
 nombre.module.css
-importar en el componente:import estilos from './css/Pelicula.module.css';
+importar en el componente import estilos from './css/Pelicula.module.css';
 y usarlos dentro como: <li className={estilos.movieCard}>
 
 //Para eliminar un paquete, yarn remove
@@ -516,6 +516,9 @@ function FormLogin(){
 
 escribir useStateSnippet
 
+--- API REST
+Ver resumen apuntes.
+//Este data que se devuelve, al venir de un .json() es una promesa, y se consume con .then() en donde se llame
 
 --- npm install firebase
 
@@ -530,8 +533,8 @@ arriba en la ruedad de ajustes, configuracion del proyecto, crear una aplicacion
 
 Para registrarse con firebase, poner contraseña de  minimo 6 caracteres
 
-se puede traer los adtos como un snapshot, cada vez que se modifique la bd, se mostrara aqui, o traerlos directamente
- y para consultar cambios pedir los datos otra vez
+se puede traer los datos como un snapshot, cada vez que se modifique la bd, se mostrara aqui, o traerlos directamente
+ y para consultar cambios pedir los datos otra vez (aqui se hace la segunda forma)
 
 
 /////////////////////////////////////////
@@ -551,5 +554,12 @@ En componentes de clase, donde no existen los hooks, el equivalente a useEffect 
 
 
 solo se puede usar aync await en funciones que sean asincornas, que en la red devuelvan los datos en pequeños trozos separados de datos
+
+con parentesis en arrow function ahorra poner el return
+
+<APIWeatherInfo {...tempInfo}/> este tempInfo es una variable de esatdo la cual tiene un objeto con datos como temperatura, humedad etc.
+        con spread para coger todos los valores de adentro y obtenerlos en el otro componente con destructuring
+
+
 */
 

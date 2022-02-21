@@ -290,16 +290,10 @@ el esquema de rutas se pone en la pag de entrada: index.js
 </BrowserRouter>
 
 //done este el route que englobe, en ese componente estará el outlet
-
+donde este Outlet es donde se pintara el contenido del componente seleccionado
 
 --- ENLACES
 Se ssutituye <a> por <Link to="/">Home</Link>
-
-
---- HOOK usePArams() para recoger variables de la url //ver en api-movie
---- HOOK useSearchParams() especial de useParams para los input type search //ver en api-movie
---- HOOK useNavigate() para volver a otra ruta //ver en apuntes
-
 
 
 USEEFFECT
@@ -369,21 +363,161 @@ En componentes de clase, donde no existen los hooks, el equivalente a useEffect 
         document.getElementById("imgClase").style.opacity = this.state.opacity;
         console.log("diUpdate " + this.state.opacity);
     }
-////////////////////////////////////////
 
+////////////////////////////////////////
+USESEARCHPARAMS() hook para mandar variables a la url, un useState especial, se utilzia de la misma forma.
+    Para usar las queryParams o parametros de busqueda que aparecen en las url (search=)
+USE PARAMS() hook para recoger variables de la url
+
+--- useSearchParams()
+import {useSearchParams } from 'react-router-dom';
+
+//dentro del componente:
+const [searchP , setSearchP] = useSearchParams(); //probar a poner dentro ({})
+
+const handleFiltrar = (e) => {     //evento declarado en el onChange del input type text del formulario
+    setSearchP({search : e.target.value})
+}
+
+//Paso previo para poner lo que has escrito como valor en tu input
+    ^
+const filtrado = searchP.get("search") ?? "" //si es distinto de null o undefined, quedate con lo que tiene, 
+    sino pon vacio
+
+return(
+    <input
+        type="text"
+        placeholder="Buscar pelicula"
+        value={filtrado}//nunca puede ser null, ni al principio cuando esta pintando el componente
+        //necesario para que permanezca la palabra en el input al igual que en la url, aun refrescando
+        onChange={handleFiltrar}
+      />
+
+      <ul> //cojo mi pelicula del array, y devuelvo las que incluya en alguna parte lo que haya escrito en el input
+           //con .includes()
+
+        {datos.results.filter( (pelicula) => {
+          const nombrePelicula = pelicula.title.toLocaleLowerCase();
+          return nombrePelicula.includes(filtrado.toLocaleLowerCase()) 
+        
+        ).map((pelicula) => {
+          return (
+            <li key={pelicula.id}>
+              <Link to={pelicula.id.toString()}>{pelicula.title}</Link>   //todo loq ue envie por la url tiene que ser string
+            </li>
+          )
+        })}
+      </ul>
+)
+
+
+--- useParams()
+
+import { useParams } from 'react-router-dom';
+
+//en el componente
+const params = useParams();//params es un objeto, con una clave que se llama con el nombre de la variable que pusimos en route /:
+    
+function getPeliculaID(){
+    return datos.results.find( (pelicula) => pelicula.id === parseInt(params.peliculaID) );
+    //el id es numero, la url es string, con 3 iguales nunca seria igual, por lo que convertimos el texto en entero, 
+    //o viceversa
+}
+const peliculaBuscada = getPeliculaID();
+
+    return (
+        <div>
+            <h2>{peliculaBuscada.title}</h2>
+
+--------------
+En index.js , dentro de <BrowserRouter>
+<Route path="peliculas" element={<PeliculasGrid/>} >
+    <Route path=":peliculaID" element={<Pelicula/>} /> //este nombre despues de : da igual, luego lo usaremos para coger ese valor
+</Route>
+
+</BrowserRouter>
+--------------
+//////////////////////////////////////
+USENAVIGATE hook para volver a otras rutas
+
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
+
+function handleVolver(){
+    navigate("/peliculas");
+}
+
+///////////////////////////////////////
 
 solo se puede usar aync await en funciones que sean asincornas, que en la red devuelvan los datos en pequeños trozos separados de datos
 
+--- CONSULTA API
+creamos en una constante una funcion flecha, con async await, dentro de su try catch. 
+PRIMER AWAIT EN fetch(url) y segundo AWAIT en .json()
+Este archivo lo podemos poner dentro de una carpeta helpers
+
+const getPeliculas = async () => {
+    try {   
+        const url = "https://api.themoviedb.org/4/discover/movie?api_key=7d968d2bb2398a4fbd9cd07cb679b846&language=es";
+        const resp = await fetch(url);
+    
+        const data = await resp.json();
+        console.log(data);//siempre hay que comprobar antes que tipo de datos devuelve para escribirlo dsp, en este caso array de objetos, en el useState pondremos[]
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export default getPeliculas;
+
+//Este data que se devuelve, al venir de un .json() es una promesa, y se consume con .then() en donde se llame
+
+/////////////////////////////////////
+
+FORM
+
+--- npm install react-hook-form
+
+ver ejemplo react-hook-form-app. Con este hook, el usar los 3 puntos o esa forma de definir las variables es eimpre asi, como esta definido este hook
+//dentro del componente:
+const [entradas, setEntradas] = useState([]);
+const {register,handleSubmit, formState:{errors}} = useForm();
+    //en register se guardan os datos y los errores asociados
+
+const onSubmit = (data,e) => { //dos parametros, la data (todos los datos del form) y el evento
+    e.target.reset();//limpia el form
+
+    setEntradas([...entradas,data]); //guardo en entradas lo que ya tiene, más data
+    //esto se hace en diferido 
+} 
+
+return(
+<form onSubmit={handleSubmit(onSubmit)} className="mb-5">
+<input 
+    type="password"
+    placeholder="Password"
+    className="form-control mb-2"
+    name="password"
+    {
+        ...register("password",{
+        required:{value:true , message : "Contraseña requerido"},
+        minLength:{value : 4 , message : "Longitud insuficiente"}
+    })  
+    }    
+/>
+
+
+/////////////////////////////////////
+
+FIREBASE
 
 --- npm install firebase
 
 carpeta components, carpeta helpers, fichero firebase-config.js
 añadir export const db = getFirestore(app); //esto sirve para no tener que importarlo en cada componente
 import {getFirestore} from "firebase/firestore";
-
-
-Comprobar que no este guardado previamente
-añadir span abajo diciendo que se agrego, esta repetido o si hay campo vacio
 
 
 todo lo que sea traer datos de la bd o hacer cosas con la bd tiene que ser asincrono, async await
@@ -393,6 +527,11 @@ el evento de onClick si necesita parametro, no se declara fuera, sino ahí con u
 onClick={(e) => handleEliminar(libro.id)}
 
 *****cuando los componentes no son padres ni hijos para pasar datos, creamos un estado global en app y lo pasamos a ambos
+*****con parentesis en arrow function ahorra poner el return
+****<APIWeatherInfo {...tempInfo}/> este tempInfo es una variable de esatdo la cual tiene un objeto con datos como temperatura, humedad etc.
+        con spread para coger todos los valores de adentro y obtenerlos en el otro componente con destructuring
+****.get("indice") coger el valor de un objeto dado ese indice
+**** .filter() devuelve un array con las coincidencias, mientras qye .find() devuelve la primera coincidencia
 
 //EJ 4 relacion 2 REACT, api pokemon
 al conectrase a api, en el useEffect [] llamar a una funcion que cargue todos los datos de la api
