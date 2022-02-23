@@ -511,6 +511,34 @@ return(
 
 /////////////////////////////////////
 
+PASAR VARIABLES DE UN COMPONENTE A OTRO
+
+<TarjetaFruta nombreFruta="Fresa" precio="2,45"/>
+Para pasar variables de un componente a otro, se nombran en los atributos de ese componente con el mismo nombre de su variable a pasar
+creo que no tiene porque ser asi
+<Componente2
+    global={global.nombre}
+    setGlobal={setGlobal} 
+    handleEliminar={handleEliminar}
+/>
+ó
+<APIWeatherInfo {...tempInfo}/>
+con spread porque tempInfo es un objeto y de esta forma se pasan los valores que tiene dentro, sin llamar
+al objeto en el otro componente, sino con destructuring de sus propiedades.
+al ser spread, NO puede llevar tempInfo = {...tempInfo}
+
+
+///////////////////////////////////////////
+
+COMO PINTAR ELEMENTOS DE UN BUCLE DENTRO DE UN RETURN DEL COMPONENTE
+<div>
+        {arrayCiudades.map( e => (
+            <p key={e.name}>{e.name} : {e.min.temp}</p>
+        ))}
+    </div>
+
+////////////////////////////////////
+
 FIREBASE
 
 --- npm install firebase
@@ -526,12 +554,34 @@ todos los await por convencion se ponen dentro de try catch
 el evento de onClick si necesita parametro, no se declara fuera, sino ahí con un arrow function para poner ese parametro
 onClick={(e) => handleEliminar(libro.id)}
 
+//////////////////////////////////////////////
+
+//PROMESAS CON ASYNC AWAIT
+
+async function apiFetch(){
+    try{
+        let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+        let json = await response.json();
+        console.log(json); 
+    }catch(error){
+        console.log(error);
+    }
+}
+apiFetch();
+
+//si lo llamas desde dentro de la funcion async, la promesa queda resuelta con await.
+        //Pero si hace un return y se quiere trabajar con esos datos FUERA de la funcion, al ser async devolvera una 
+        //promesa la cual hay que consumir con await
+
+///////////////////////////////////////////////
+
 *****cuando los componentes no son padres ni hijos para pasar datos, creamos un estado global en app y lo pasamos a ambos
 *****con parentesis en arrow function ahorra poner el return
 ****<APIWeatherInfo {...tempInfo}/> este tempInfo es una variable de esatdo la cual tiene un objeto con datos como temperatura, humedad etc.
         con spread para coger todos los valores de adentro y obtenerlos en el otro componente con destructuring
 ****.get("indice") coger el valor de un objeto dado ese indice
 **** .filter() devuelve un array con las coincidencias, mientras qye .find() devuelve la primera coincidencia
+
 
 //EJ 4 relacion 2 REACT, api pokemon
 al conectrase a api, en el useEffect [] llamar a una funcion que cargue todos los datos de la api

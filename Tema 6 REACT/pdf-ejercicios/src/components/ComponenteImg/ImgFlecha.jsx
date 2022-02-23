@@ -28,7 +28,7 @@ const Img = () => {
             <img id="imgFlecha" src="/img/ahsoka.jpg" alt="Ahsoka" style={{width:"300px" , opacity : 1}} 
                 onMouseEnter={opacityOn} onMouseLeave={opacityOff}
             />
-            <h2>Opacity: {opacity}</h2>
+            <h3>Opacity: {opacity}</h3>
         </div>
     );
 };

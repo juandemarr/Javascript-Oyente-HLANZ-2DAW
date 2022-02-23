@@ -557,8 +557,74 @@ solo se puede usar aync await en funciones que sean asincornas, que en la red de
 
 con parentesis en arrow function ahorra poner el return
 
-<APIWeatherInfo {...tempInfo}/> este tempInfo es una variable de esatdo la cual tiene un objeto con datos como temperatura, humedad etc.
-        con spread para coger todos los valores de adentro y obtenerlos en el otro componente con destructuring
+/////////////////////////////////////
+
+PASAR VARIABLES DE UN COMPONENTE A OTRO
+
+<TarjetaFruta nombreFruta="Fresa" precio="2,45"/>
+Para pasar variables de un componente a otro, se nombran en los atributos de ese componente con el mismo nombre de su variable a pasar
+creo que no tiene porque ser asi
+<Componente2
+    global={global.nombre}
+    setGlobal={setGlobal} 
+    handleEliminar={handleEliminar}
+/>
+ó
+<APIWeatherInfo {...tempInfo}/>
+con spread porque tempInfo es un objeto y de esta forma se pasan los valores que tiene dentro, sin llamar
+al objeto en el otro componente, sino con destructuring de sus propiedades.
+al ser spreas, NO puede llevar tempInfo = {...tempInfo}
+
+////////////////////////////////////
+el evento de onClick si necesita parametro, no se declara fuera, sino ahí con un arrow function para poner ese parametro
+onClick={(e) => handleEliminar(libro.id)}
+
+//////////////////////////////////////////////
+
+//PROMESAS CON ASYNC AWAIT
+
+async function apiFetch(){
+    try{
+        let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+        let json = await response.json();
+        console.log(json); 
+    }catch(error){
+        console.log(error);
+    }
+}
+apiFetch();
+
+//si lo llamas desde dentro de la funcion async, la promesa queda resuelta con await.
+        //Pero si hace un return y se quiere trabajar con esos datos FUERA de la funcion, al ser async devolvera una 
+        //promesa la cual hay que consumir con await
+
+
+///////////////////////////////////////////
+
+COMO PINTAR ELEMENTOS DE UN BUCLE DENTRO DE UN RETURN DEL COMPONENTE
+<div>
+        {arrayCiudades.map( e => (
+            <p key={e.name}>{e.name} : {e.min.temp}</p>
+        ))}
+    </div>
+
+///////////////////////////////////////////////
+
+json-server, de github, instala un servidor de api en el equipo
+npm install json-server
+
+en package.json se pone en scripts: "lanzar-servidor" : json-server --watch src/db.json --port 5000",  
+//se le indica el puerto ya que por defecto coge el 3000
+
+
+yarn a secas o yarn install baja las dependencias de un proyecto
+
+    //GET <-- TRAER
+    //POST <-- INSERTAR
+    //DELETE <-- ELIMINAR
+    //PATCH PUT <-- los dos actualizan, patch puede modiifcar un unico campo mientras que put solo todo el objeto
+
+PATCH se le indica un id, y con eso solo se tiene que indicar el campo a actualizar. Mirar placehodler
 
 
 */

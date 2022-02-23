@@ -35,7 +35,7 @@ class ImgClase extends Component{
                     onMouseEnter={this.handleOpacity}
                     onMouseLeave={this.handleOpacityReverse}
                 ></img>
-                <h2>Opacity: {this.state.opacity}</h2>
+                <h3>Opacity: {this.state.opacity}</h3>
             </div>
         )
     }

@@ -1,3 +1,5 @@
+import { array } from "prop-types";
+
 //ARREGLOS O ARRAYS
 var miArreglo = ["Nombre", "Apellidos", "Direccion"];
 
@@ -102,3 +104,19 @@ for(var i = 0 ; i < miArray.length - 1 ; i++){
 
 }
 console.log("Contador de impares: " + contadorImpares);
+
+///TODOS ESTOS METODOS LLEVAN UNA FUNCION CALLBACK O ARROW DENTRO DE ELLOS PARA EJECUTARSE
+//// FOREACH Y MAP
+Ambos iteran sobre un array, la diferencia es que forEach no devuelve NamedNodeMap, mientras que map 
+devuelve una lista con el resultado de lo que hayas hecho dentro del array
+
+//FIND Y FILTER
+finde devuelve solo la primera ocurrencia, mientras que filter devuelve un array con todas las ocurrencias
+
+//SLICE
+devuelve una parte cortada del array original
+array.slice(inicio, fin) //El fin no se incluye
+
+//SPLIT
+devuelve tantas cadenas como haya separadas por el separador indicado
+array.split(",")

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Ej6_2 from './Ej6_2';
 
-const Ej6 = () => {
+const ContenidoInputDebajo = () => {
 
     const [input, setInput] = useState("");
 
@@ -15,11 +15,11 @@ const Ej6 = () => {
 
     return (
         <div>
-            <h2>Pasar contenido del input a otro componente</h2>
+            <h3>Pasar contenido del input a otro componente</h3>
             <input type="text" onChange={guardarValor}></input>
             <Ej6_2 valor={input}/>
         </div>
     )
 }
 
-export default Ej6
+export default ContenidoInputDebajo

@@ -20,7 +20,7 @@ function ImgFuncional(){
                 onMouseEnter={handleOpacity}
                 onMouseLeave={handleOpacityReverse}
                 ></img>
-                <h2>Opacity: {opacity}</h2>
+                <h3>Opacity: {opacity}</h3>
         </div>
     )
 }

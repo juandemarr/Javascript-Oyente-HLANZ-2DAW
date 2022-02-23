@@ -211,7 +211,9 @@ async function apiFetch(){
     try{
         let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
         let json = await response.json();
-        console.log(json);
+        console.log(json); //si lo llamas desde dentro de la funcion async, la promesa queda resuelta con await.
+        //Pero si hace un return y se quiere trabajar con esos datos FUERA de la funcion, al ser async devolvera una 
+        //promesa la cual hay que consumir con await
     }catch(error){
         console.log(error);
     }

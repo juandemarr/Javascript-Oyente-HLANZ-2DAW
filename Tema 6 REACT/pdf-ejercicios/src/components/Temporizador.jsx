@@ -12,7 +12,7 @@ const Temporizador = () => {
 
     return (
         <div>
-            <h2>Temporizador</h2>
+            <h3>Temporizador</h3>
             <p>{contador}</p>
         </div>
     );

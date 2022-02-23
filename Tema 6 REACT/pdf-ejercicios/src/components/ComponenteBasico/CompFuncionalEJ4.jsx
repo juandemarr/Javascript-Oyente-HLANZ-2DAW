@@ -9,8 +9,8 @@ const MyHelloComponentFunctional = () => {
 
   return (
     <div>
-        <h2>Componente funcional</h2>
-        <h3>{myText}</h3>
+        <h3>Componente funcional</h3>
+        <h4>{myText}</h4>
         <button onClick={handleCambiarEstado}>Change text</button>
     </div>
   );
