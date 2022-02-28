@@ -10,7 +10,8 @@ import MyHelloComponentFunctional from './components/ComponenteBasico/CompFuncio
 import Temporizador from './components/Temporizador';
 import ContenidoInputDebajo from './components/Input/ContenidoInputDebajo';
 import ApiWeather from './components/ApiWeather/ApiWeather';
-
+import JSONPlaceholderUsers from './components/UsersAndEmails/UserAndEmail';
+import UserPosts from './components/UsersAndPosts/UserPosts';
 
 ReactDOM.render(
   <div>
@@ -23,6 +24,8 @@ ReactDOM.render(
     <Temporizador/>
     <ContenidoInputDebajo />
     <ApiWeather/>
+    <JSONPlaceholderUsers />
+    <UserPosts/>
   </div>
   ,document.getElementById('root')
 );

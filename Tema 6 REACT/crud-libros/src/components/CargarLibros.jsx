@@ -78,6 +78,8 @@ const CargarLibros = ({libroGlobal,setLibroGlobal}) => {
                                 <td>{libro.data.descripcion}</td>
                                 <td><button className="btn btn-danger" onClick={(e) => handleEliminar(libro.id)}>Eliminar</button></td>
                                 <td><button className="btn btn-success" onClick={(e) => setLibroGlobal(libro)}>Editar</button></td>
+                                {/* este editar carga los datos del libro en el form de arriba, por eso se pasa al padre el cual pasa ese libro
+                                al otro componente, y ya se guardaria */}
                             </tr>
                         ))}
 

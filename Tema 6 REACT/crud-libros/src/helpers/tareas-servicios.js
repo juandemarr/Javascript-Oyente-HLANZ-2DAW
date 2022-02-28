@@ -28,7 +28,7 @@ class librosServicios{
     }
 
     getLibroNombre = (nombreLibro) => {
-        const q = query(librosCollection,where("titulo","==",nombreLibro)); //buscaria en todas las colecciones
+        const q = query(librosCollection,where("titulo","==",nombreLibro));
         return getDoc(q);
     }
 

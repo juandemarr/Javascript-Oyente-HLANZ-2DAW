@@ -32,6 +32,7 @@ const GuardarLibro = ({libroGlobal,setLibroGlobal}) => {
         //}
         
     }
+    
     const handleTitulo = (e)=>{
         setTitulo(e.target.value);
     }

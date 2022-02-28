@@ -20,11 +20,13 @@ const PeliculaPantilla = () => {
     //efectos, funciones
     useEffect(() => {
         consultarApi();
+        
     },[]);
 
     //pintado de coponentes
     return (
         <ul className={estilos.moviesGrid}>
+            {console.log(peliculas)}
             {peliculas.map((peli,index) => (
                 <Pelicula
                     key={peli.id}

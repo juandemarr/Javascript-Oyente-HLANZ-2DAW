@@ -627,5 +627,26 @@ yarn a secas o yarn install baja las dependencias de un proyecto
 PATCH se le indica un id, y con eso solo se tiene que indicar el campo a actualizar. Mirar placehodler
 
 
+////////////////COMO METER OBJETOS A UN ARRAY DE USESATE
+const [arrayCiudades, setArrayCiudades] = useState([])
+
+setArrayCiudades([city]); //aqui hay que ponerlo entre []. porque sino si en el render usamos .map, 
+    no lo reconoce como un array.
+    PROBLEMA: esto sustituye lo que hay dentro, para añadirlo:
+setArrayCiudades([...arrayCiudades , city]); //indica lo que ya hay con el spread operator más el valor nuevo
+
+Para actualizar un valor de un objeto de ese array
+const handleUpdateUser = (uid) => {
+const newUsers = users.map((user)=>{
+    if(user.uid === uid){
+        return {
+            ...user,   //todo lo que tenga user más la propiedad de abajo
+            name : "Hello",
+        }
+    }
+    return user
+})
+};
+
 */
 

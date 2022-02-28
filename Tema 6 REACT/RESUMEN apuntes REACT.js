@@ -583,6 +583,29 @@ apiFetch();
 **** .filter() devuelve un array con las coincidencias, mientras qye .find() devuelve la primera coincidencia
 
 
+////////////////COMO METER OBJETOS A UN ARRAY DE USESATE
+const [arrayCiudades, setArrayCiudades] = useState([])
+
+setArrayCiudades([city]); //aqui hay que ponerlo entre []. porque sino si en el render usamos .map, 
+    no lo reconoce como un array.
+    PROBLEMA: esto sustituye lo que hay dentro, para añadirlo:
+setArrayCiudades([...arrayCiudades , city]); //indica lo que ya hay con el spread operator más el valor nuevo
+//////////////////////NO FUNCA
+
+Para actualizar un valor de un objeto de ese array
+const handleUpdateUser = (uid) => {
+const newUsers = users.map((user)=>{
+    if(user.uid === uid){
+        return {
+            ...user,   //todo lo que tenga user más la propiedad de abajo
+            name : "Hello",
+        }
+    }
+    return user
+})
+};
+
+
 //EJ 4 relacion 2 REACT, api pokemon
 al conectrase a api, en el useEffect [] llamar a una funcion que cargue todos los datos de la api
 con un find sobre ese array, buscando por el nombre, encuentra el pokemon, y su url, 
