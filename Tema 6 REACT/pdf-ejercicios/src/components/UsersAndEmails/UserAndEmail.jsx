@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import apiUser from '../../helpers/getJSONPlaceholder.jsx';
+import apis from '../../helpers/getJSONPlaceholder.jsx';
 
 const UserAndEmail = () => {
   //////////////////estados
@@ -7,7 +7,7 @@ const UserAndEmail = () => {
   
   /////////////////funciones
   const consultarAPI = () => {
-    apiUser().then(users => setUsuarios(users));
+    apis.apiUsers().then(users => setUsuarios(users));
   }
 
   //////////////////efectos
