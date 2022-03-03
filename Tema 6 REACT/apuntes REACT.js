@@ -386,7 +386,9 @@ que apunta a la pag principal. Para indicar donde se pintaran, se pone <Outlet /
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Layout/>}>     // se engloba para decir que todo eso se quede en una parte dentro de la pag principal, y hay que indica adonde quiero apuntar
+      <Route path="/" element={<Layout/>}>  // se engloba para decir que todo eso se quede en una parte
+                                            // dentro de la pag principal, indicado con Link en ese componente. 
+                                            //Luego usaremos <Outlet /> en el componente tbn para que se pinte el resto ahí
         <Route index element={<Home />} />     // La principal se sustituye por index 
         <Route path="peliculas" element={<PeliculasGrid/>} />
         <Route path="about" element={<About/>} />
@@ -400,6 +402,22 @@ document.getElementById('root')
 );
 
 //done este el route que englobe, en ese componente estará el outlet
+<nav>
+    <Link to="/">Home</Link> | {" "}
+    <Link to="/peliculas">Peliculas</Link> | {" "}
+    <Link to="/about">About</Link>
+</nav>
+
+<section>
+    <Outlet />
+</section>
+
+---------------- Para que el "hijo se pinte en una pagina aparte, sin outlet. No se anida y se repite la ruta"
+<Route path="UserPosts" element={<UserPosts />}/>
+<Route path="UserPosts/:idUser" element={<UserComments />}/>{
+    //al no ponerlo anidado, muestra el componente hijo en una pagina distinta
+--------------
+
 
 
 Para recorrer un array con .map() y dentro una funcion flecha, la cual siemre tiene que tener un return()

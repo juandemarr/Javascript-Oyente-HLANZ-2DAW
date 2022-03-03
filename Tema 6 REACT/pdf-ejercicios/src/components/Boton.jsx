@@ -1,8 +1,14 @@
 import React from 'react';
 
 const Boton = () => {
+    let pintado = false;
+
     function handleBgColor(){
-        document.querySelector("body").style.backgroundColor="#abb8c3";
+        pintado = !pintado;
+        if(pintado)
+            document.querySelector("body").style.backgroundColor="#abb8c3";
+        else
+            document.querySelector("body").style.backgroundColor="#fff";
     }
 
     return (

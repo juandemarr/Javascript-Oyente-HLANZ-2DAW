@@ -33,9 +33,12 @@ ReactDOM.render(
         <Route path="ContenidoInputDebajo" element={<ContenidoInputDebajo />} />
         <Route path="ApiWeather" element={<ApiWeather />} />
         <Route path="JSONPlaceholderUsers" element={<JSONPlaceholderUsers />} />
-        <Route path="UserPosts" element={<UserPosts />}>
+        {/* <Route path="UserPosts" element={<UserPosts />}>
           <Route path=":idUser" element={<UserComments />}/>
-        </Route>
+        </Route> */}
+        <Route path="UserPosts" element={<UserPosts />}/>
+        <Route path="UserPosts/:idUser" element={<UserComments />}/>{/*al no ponerlo anidado, muestra el
+                                                                     componente hijo en una pagina distinta*/}
         <Route path="*" element={<Navigate replace to="/" />}/>
       </Route>
 

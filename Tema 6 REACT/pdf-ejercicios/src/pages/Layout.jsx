@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <>
         <nav>
-        <Link to="/Boton">Boton</Link>{" - "}
+            <Link to="/Boton">Boton</Link>{" - "}
             <Link to="/ImgClase">ImgClase</Link>{" - "}
             <Link to="/ImgFuncional">ImgFuncional</Link>{" - "}
             <Link to="/ImgFlecha">ImgFlecha</Link>{" - "}

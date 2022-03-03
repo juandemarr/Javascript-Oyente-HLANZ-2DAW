@@ -429,14 +429,43 @@ const peliculaBuscada = getPeliculaID();
         <div>
             <h2>{peliculaBuscada.title}</h2>
 
---------------
-En index.js , dentro de <BrowserRouter>
-<Route path="peliculas" element={<PeliculasGrid/>} >
-    <Route path=":peliculaID" element={<Pelicula/>} /> //este nombre despues de : da igual, luego lo usaremos para coger ese valor
-</Route>
 
+--------------RUTAS
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout/>}>  // se engloba para decir que todo eso se quede en una parte
+                                            // dentro de la pag principal, indicado con Link en ese componente. 
+                                            //Luego usaremos <Outlet /> en el componente tbn para que se pinte el resto ahí
+        <Route index element={<Home />} />     // La principal se sustituye por index 
+        <Route path="peliculas" element={<PeliculasGrid/>} />
+        <Route path="about" element={<About/>} />
+        <Route path="*" element={<Navigate replace to ="/" /> } />
+    </Route>
+      
+  </Routes>
 </BrowserRouter>
+,
+document.getElementById('root')
+);
+
+//done este el route que englobe, en ese componente estará el outlet
+<nav>
+    <Link to="/">Home</Link> | {" "}
+    <Link to="/peliculas">Peliculas</Link> | {" "}
+    <Link to="/about">About</Link>
+</nav>
+
+<section>
+    <Outlet />
+</section>
+
+---------------- Para que el "hijo se pinte en una pagina aparte, sin outlet. No se anida y se repite la ruta"
+<Route path="UserPosts" element={<UserPosts />}/>
+<Route path="UserPosts/:idUser" element={<UserComments />}/>{
+    //al no ponerlo anidado, muestra el componente hijo en una pagina distinta
 --------------
+
 //////////////////////////////////////
 USENAVIGATE hook para volver a otras rutas
 
